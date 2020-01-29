@@ -18,6 +18,7 @@ public class BottomTab extends AppCompatActivity {
         setContentView(R.layout.activity_bottom_tab);
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
+        //testtest
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
