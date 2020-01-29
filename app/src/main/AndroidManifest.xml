@@ -16,19 +16,22 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".BottomTab"
-            android:label="@string/title_activity_bottom_tab"></activity>
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/title_activity_home" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".HomeActivity">
+            android:name=".HomeActivity"
+            android:label="@string/title_activity_home"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".BottomTab"
+            android:label="@string/title_activity_bottom_tab" />
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_home" />
+        <activity android:name=".LoginActivity" />
     </application>
 
 </manifest>
