@@ -73,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-    private void loginEvent(String url, final View view) {
+    private void loginEvent(final String url, final View view) {
         RequestQueue requestQueue=Volley.newRequestQueue(getApplicationContext());
         StringRequest stringRequest=new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
@@ -89,7 +89,8 @@ public class LoginActivity extends AppCompatActivity {
                         String tempp = jsonObject1.getString("reg_no");
                         if (tempp.equals(editTextUname.getText().toString())) {
 
-                            Intent intent = new Intent(view.getContext(), MainActivity.class);
+                            Intent intent = new Intent(view.getContext(), HomeActivity.class);
+                            intent.putExtra("url",url);
                             view.getContext().startActivity(intent);
                         }
                         else{
