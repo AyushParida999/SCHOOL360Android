@@ -86,18 +86,14 @@ public class LoginActivity extends AppCompatActivity {
                     JSONArray jsonArray=jsonObject.getJSONArray("name");
                     for(int i=0;i<jsonArray.length();i++) {
                         JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                        if (jsonObject1.getString("reg_no") == "1001") {
+                        String tempp = jsonObject1.getString("reg_no");
+                        if (tempp.equals(editTextUname.getText().toString())) {
 
                             Intent intent = new Intent(view.getContext(), MainActivity.class);
-                            String tempp=jsonObject1.getString("reg_no");
-                            temp.add(tempp);
                             view.getContext().startActivity(intent);
                         }
                         else{
-                            Intent intent = new Intent(view.getContext(), MainActivity.class);
-                            String tempp=jsonObject1.getString("reg_no");
-                            temp.add(tempp);
-                            view.getContext().startActivity(intent);
+
                         }
                     }
                 }catch (JSONException e){e.printStackTrace();}
