@@ -39,7 +39,7 @@
         android:id="@+id/nav_notices"
         android:name="com.sits.school360.ui.notices.NoticesFragment"
         android:label="@string/menu_notices"
-        tools:layout="@layout/fragment_events" />
+        tools:layout="@layout/fragment_notices" />
     <fragment
         android:id="@+id/nav_events"
         android:name="com.sits.school360.ui.events.EventsFragment"
@@ -49,21 +49,21 @@
         android:id="@+id/nav_timetable"
         android:name="com.sits.school360.ui.timetable.TimetableFragment"
         android:label="@string/menu_timetable"
-        tools:layout="@layout/fragment_events" />
+        tools:layout="@layout/fragment_timetable" />
     <fragment
         android:id="@+id/nav_teachers"
         android:name="com.sits.school360.ui.teachers.TeachersFragment"
         android:label="@string/menu_teachers"
-        tools:layout="@layout/fragment_events" />
+        tools:layout="@layout/fragment_teachers" />
     <fragment
         android:id="@+id/nav_homework"
         android:name="com.sits.school360.ui.homework.HomeworkFragment"
         android:label="@string/menu_homework"
-        tools:layout="@layout/fragment_events" />
+        tools:layout="@layout/fragment_homework" />
 
     <fragment
         android:id="@+id/nav_logout"
         android:name="com.sits.school360.ui.logout.LogoutFragment"
         android:label="@string/menu_logout"
-        tools:layout="@layout/fragment_events" />
+        tools:layout="@layout/fragment_logout" />
 </navigation>
