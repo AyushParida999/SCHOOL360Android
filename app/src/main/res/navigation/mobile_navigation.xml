@@ -12,32 +12,58 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.sits.school360.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
+        android:id="@+id/nav_exam"
+        android:name="com.sits.school360.ui.exam.ExamFragment"
+        android:label="@string/menu_exam"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.sits.school360.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
+        android:id="@+id/nav_transport"
+        android:name="com.sits.school360.ui.transport.TransportFragment"
+        android:label="@string/menu_transport"
         tools:layout="@layout/fragment_slideshow" />
 
     <fragment
-        android:id="@+id/nav_tools"
-        android:name="com.sits.school360.ui.tools.ToolsFragment"
-        android:label="@string/menu_tools"
+        android:id="@+id/nav_attendance"
+        android:name="com.sits.school360.ui.attendance.AttendanceFragment"
+        android:label="@string/menu_attendance"
         tools:layout="@layout/fragment_tools" />
 
     <fragment
-        android:id="@+id/nav_share"
-        android:name="com.sits.school360.ui.share.ShareFragment"
-        android:label="@string/menu_share"
+        android:id="@+id/nav_profile"
+        android:name="com.sits.school360.ui.profile.ProfileFragment"
+        android:label="@string/menu_profile"
         tools:layout="@layout/fragment_share" />
 
     <fragment
-        android:id="@+id/nav_send"
-        android:name="com.sits.school360.ui.send.SendFragment"
-        android:label="@string/menu_send"
+        android:id="@+id/nav_notices"
+        android:name="com.sits.school360.ui.events.EventsFragment"
+        android:label="@string/menu_notices"
+        tools:layout="@layout/fragment_send" />
+    <fragment
+        android:id="@+id/nav_events"
+        android:name="com.sits.school360.ui.events.EventsFragment"
+        android:label="@string/menu_events"
+        tools:layout="@layout/fragment_send" />
+    <fragment
+        android:id="@+id/nav_timetable"
+        android:name="com.sits.school360.ui.events.EventsFragment"
+        android:label="@string/menu_timetable"
+        tools:layout="@layout/fragment_send" />
+    <fragment
+        android:id="@+id/nav_teachers"
+        android:name="com.sits.school360.ui.events.EventsFragment"
+        android:label="@string/menu_teachers"
+        tools:layout="@layout/fragment_send" />
+    <fragment
+        android:id="@+id/nav_homework"
+        android:name="com.sits.school360.ui.events.EventsFragment"
+        android:label="@string/menu_homework"
+        tools:layout="@layout/fragment_send" />
+
+    <fragment
+        android:id="@+id/nav_logout"
+        android:name="com.sits.school360.ui.events.EventsFragment"
+        android:label="@string/menu_logout"
         tools:layout="@layout/fragment_send" />
 </navigation>

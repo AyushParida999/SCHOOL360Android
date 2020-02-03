@@ -120,7 +120,6 @@ public class LoginActivity extends AppCompatActivity {
                 res[1]="{\"name\":"+res[1]+"}";
                 try{
                     JSONObject jsonObject=new JSONObject(res[1]);
-
                         JSONArray jsonArray=jsonObject.getJSONArray("name");
                         for(int i=0;i<jsonArray.length();i++){
                             JSONObject jsonObject1=jsonArray.getJSONObject(i);

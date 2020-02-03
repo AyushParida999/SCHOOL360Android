@@ -1,4 +1,4 @@
-package com.sits.school360.ui.slideshow;
+package com.sits.school360.ui.transport;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.sits.school360.R;
 
-public class SlideshowFragment extends Fragment {
+public class TransportFragment extends Fragment {
 
-    private SlideshowViewModel slideshowViewModel;
+    private TransportViewModel transportViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        slideshowViewModel =
-                ViewModelProviders.of(this).get(SlideshowViewModel.class);
+        transportViewModel =
+                ViewModelProviders.of(this).get(TransportViewModel.class);
         View root = inflater.inflate(R.layout.fragment_slideshow, container, false);
         final TextView textView = root.findViewById(R.id.text_slideshow);
-        slideshowViewModel.getText().observe(this, new Observer<String>() {
+        transportViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

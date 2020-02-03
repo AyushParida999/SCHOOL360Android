@@ -1,16 +1,16 @@
-package com.sits.school360.ui.gallery;
+package com.sits.school360.ui.attendance;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class GalleryViewModel extends ViewModel {
+public class AttendanceViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public GalleryViewModel() {
+    public AttendanceViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is gallery fragment");
+        mText.setValue("This is tools fragment");
     }
 
     public LiveData<String> getText() {
