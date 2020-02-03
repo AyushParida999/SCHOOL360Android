@@ -22,7 +22,7 @@ public class TransportFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         transportViewModel =
                 ViewModelProviders.of(this).get(TransportViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_slideshow, container, false);
+        View root = inflater.inflate(R.layout.fragment_transport, container, false);
         final TextView textView = root.findViewById(R.id.text_slideshow);
         transportViewModel.getText().observe(this, new Observer<String>() {
             @Override

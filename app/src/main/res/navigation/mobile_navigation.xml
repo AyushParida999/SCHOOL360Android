@@ -15,55 +15,55 @@
         android:id="@+id/nav_exam"
         android:name="com.sits.school360.ui.exam.ExamFragment"
         android:label="@string/menu_exam"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_exam" />
 
     <fragment
         android:id="@+id/nav_transport"
         android:name="com.sits.school360.ui.transport.TransportFragment"
         android:label="@string/menu_transport"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_transport" />
 
     <fragment
         android:id="@+id/nav_attendance"
         android:name="com.sits.school360.ui.attendance.AttendanceFragment"
         android:label="@string/menu_attendance"
-        tools:layout="@layout/fragment_tools" />
+        tools:layout="@layout/fragment_attendance" />
 
     <fragment
         android:id="@+id/nav_profile"
         android:name="com.sits.school360.ui.profile.ProfileFragment"
         android:label="@string/menu_profile"
-        tools:layout="@layout/fragment_share" />
+        tools:layout="@layout/fragment_profile" />
 
     <fragment
         android:id="@+id/nav_notices"
         android:name="com.sits.school360.ui.notices.NoticesFragment"
         android:label="@string/menu_notices"
-        tools:layout="@layout/fragment_send" />
+        tools:layout="@layout/fragment_events" />
     <fragment
         android:id="@+id/nav_events"
         android:name="com.sits.school360.ui.events.EventsFragment"
         android:label="@string/menu_events"
-        tools:layout="@layout/fragment_send" />
+        tools:layout="@layout/fragment_events" />
     <fragment
         android:id="@+id/nav_timetable"
         android:name="com.sits.school360.ui.timetable.TimetableFragment"
         android:label="@string/menu_timetable"
-        tools:layout="@layout/fragment_send" />
+        tools:layout="@layout/fragment_events" />
     <fragment
         android:id="@+id/nav_teachers"
         android:name="com.sits.school360.ui.teachers.TeachersFragment"
         android:label="@string/menu_teachers"
-        tools:layout="@layout/fragment_send" />
+        tools:layout="@layout/fragment_events" />
     <fragment
         android:id="@+id/nav_homework"
         android:name="com.sits.school360.ui.homework.HomeworkFragment"
         android:label="@string/menu_homework"
-        tools:layout="@layout/fragment_send" />
+        tools:layout="@layout/fragment_events" />
 
     <fragment
         android:id="@+id/nav_logout"
         android:name="com.sits.school360.ui.logout.LogoutFragment"
         android:label="@string/menu_logout"
-        tools:layout="@layout/fragment_send" />
+        tools:layout="@layout/fragment_events" />
 </navigation>

@@ -22,7 +22,7 @@ public class TimetableFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         timetableViewModel =
                 ViewModelProviders.of(this).get(TimetableViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_slideshow, container, false);
+        View root = inflater.inflate(R.layout.fragment_transport, container, false);
         final TextView textView = root.findViewById(R.id.text_slideshow);
         timetableViewModel.getText().observe(this, new Observer<String>() {
             @Override

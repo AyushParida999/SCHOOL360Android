@@ -22,7 +22,7 @@ public class AttendanceFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         attendanceViewModel =
                 ViewModelProviders.of(this).get(AttendanceViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_tools, container, false);
+        View root = inflater.inflate(R.layout.fragment_attendance, container, false);
         final TextView textView = root.findViewById(R.id.text_tools);
         attendanceViewModel.getText().observe(this, new Observer<String>() {
             @Override
