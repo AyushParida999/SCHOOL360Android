@@ -24,6 +24,7 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.textfield.TextInputEditText;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -31,8 +32,8 @@ import org.json.JSONObject;
 
 public class LoginActivity extends AppCompatActivity {
     Spinner spinner;
-    EditText editTextUname;
-    EditText editTextPws;
+    TextInputEditText editTextUname;
+    TextInputEditText editTextPws;
     Button login;
     String URL="http://apischools360.sitslive.com/Api/GetSchools?key=@@schools@@@@@@@@@3@@@@";
     String URLLogin="http://apischools360.sitslive.com/Api/Login?id=1&uname=";
@@ -51,8 +52,8 @@ public class LoginActivity extends AppCompatActivity {
         spinner=(Spinner)findViewById(R.id.spinner);
         loadSpinnerData(URL);
         temp=new ArrayList<>();
-        editTextUname=(EditText)findViewById(R.id.editText);
-        editTextPws=(EditText)findViewById(R.id.editText2);
+        editTextUname=(TextInputEditText)findViewById(R.id.editText);
+        editTextPws=(TextInputEditText)findViewById(R.id.editText2);
         login=(Button)findViewById((R.id.button));
         login.setOnClickListener(new View.OnClickListener() {
             @Override
