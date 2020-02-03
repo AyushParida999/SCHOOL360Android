@@ -10,7 +10,7 @@ public class HomeworkViewModel extends ViewModel {
 
     public HomeworkViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is share fragment");
+        mText.setValue("This is homework fragment");
     }
 
     public LiveData<String> getText() {

@@ -10,7 +10,7 @@ public class AttendanceViewModel extends ViewModel {
 
     public AttendanceViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is tools fragment");
+        mText.setValue("This is attendance fragment");
     }
 
     public LiveData<String> getText() {

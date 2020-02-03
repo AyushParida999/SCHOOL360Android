@@ -10,7 +10,7 @@ public class TransportViewModel extends ViewModel {
 
     public TransportViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is slideshow fragment");
+        mText.setValue("This is transport fragment");
     }
 
     public LiveData<String> getText() {

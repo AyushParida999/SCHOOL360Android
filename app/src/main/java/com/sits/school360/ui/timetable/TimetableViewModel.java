@@ -10,7 +10,7 @@ public class TimetableViewModel extends ViewModel {
 
     public TimetableViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is slideshow fragment");
+        mText.setValue("This is timetable fragment");
     }
 
     public LiveData<String> getText() {
