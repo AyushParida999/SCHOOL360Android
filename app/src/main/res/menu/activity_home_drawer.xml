@@ -13,6 +13,10 @@
             android:icon="@drawable/ic_menu_gallery"
             android:title="@string/menu_exam" />
         <item
+            android:id="@+id/nav_fee"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/menu_fee" />
+        <item
             android:id="@+id/nav_transport"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_transport" />

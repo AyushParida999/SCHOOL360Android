@@ -34,7 +34,7 @@ public class HomeActivity extends AppCompatActivity {
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_exam, R.id.nav_transport,
+                R.id.nav_home,R.id.nav_fee, R.id.nav_exam, R.id.nav_transport,
                 R.id.nav_attendance, R.id.nav_profile,R.id.nav_notices,
                 R.id.nav_events,R.id.nav_timetable,R.id.nav_teachers,
                 R.id.nav_homework,R.id.nav_logout)
