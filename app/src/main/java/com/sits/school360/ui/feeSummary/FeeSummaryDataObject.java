@@ -1,27 +1,55 @@
 package com.sits.school360.ui.feeSummary;
 
 public class FeeSummaryDataObject {
-    private String mText1;
-    private String mText2;
+    private String mFeeFor;
+    private String mDate;
+    private String mTotalAmount;
+    private String mTotalReceive;
+    private String mTotalDue;
+    private String mBalance;
 
-    FeeSummaryDataObject(String text1, String text2) {
-        mText1 = text1;
-        mText2 = text2;
+    FeeSummaryDataObject(String feeFor, String date, String totalAmount, String totalReceive, String totalDue, String balance) {
+        mFeeFor=feeFor;
+        mDate=date;
+        mTotalAmount=totalAmount;
+        mTotalReceive=totalReceive;
+        mTotalDue=totalDue;
+        mBalance=balance;
     }
-
-    public String getmText1() {
-        return mText1;
+    public String getmFeeFor(){
+        return mFeeFor;
     }
-
-    public void setmText1(String mText1) {
-        this.mText1 = mText1;
+    public void setmFeeFor(String mFeeFor){
+        this.mFeeFor=mFeeFor;
     }
-
-    public String getmText2() {
-        return mText2;
+    public String getmDate(){
+        return mDate;
     }
-
-    public void setmText2(String mText2) {
-        this.mText2 = mText2;
+    public void setmDate(String mDate){
+        this.mDate=mDate;
+    }
+    public String getmTotalAmount(){
+        return mTotalAmount;
+    }
+    public void setmTotalAmount(String mTotalAmount){
+        this.mTotalAmount=mTotalAmount;
+    }
+    public String getmTotalReceive(){
+        return mTotalReceive;
+    }
+    public void setmTotalReceive(String mTotalReceive){
+        this.mTotalReceive=mTotalReceive;
+    }
+    public String getmTotalDue(){
+        return mTotalDue;
+    }
+    public void setmTotalDue(String mTotalDue){
+        this.mTotalDue=mTotalDue;
+    }
+    public String getmBalance(){
+        return mBalance;
+    }
+    public void setmBalance(String mBalance){
+        this.mBalance=mBalance;
     }
 }

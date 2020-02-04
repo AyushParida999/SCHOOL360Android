@@ -19,12 +19,20 @@ public class FeeSummaryRecyclerViewAdapter extends RecyclerView.Adapter<FeeSumma
     public static class DataObjectHolder extends RecyclerView.ViewHolder
             implements View
             .OnClickListener {
-        TextView label;
-        TextView dateTime;
+        TextView date;
+        TextView feeFor;
+        TextView totalAmount;
+        TextView totalReceived;
+        TextView totalDue;
+        TextView balance;
         public DataObjectHolder(View itemView) {
             super(itemView);
-            label = (TextView) itemView.findViewById(R.id.textView);
-            dateTime = (TextView) itemView.findViewById(R.id.textView2);
+            date = (TextView) itemView.findViewById(R.id.date);
+            feeFor = (TextView) itemView.findViewById(R.id.feeFor);
+            totalAmount = (TextView) itemView.findViewById(R.id.totalAmount);
+            totalReceived = (TextView) itemView.findViewById(R.id.totalReceive);
+            totalDue = (TextView) itemView.findViewById(R.id.totalDue);
+            balance = (TextView) itemView.findViewById(R.id.balance);
             Log.i(LOG_TAG, "Adding Listener");
             itemView.setOnClickListener(this);
         }
@@ -49,8 +57,12 @@ public class FeeSummaryRecyclerViewAdapter extends RecyclerView.Adapter<FeeSumma
     }
     @Override
     public void onBindViewHolder(DataObjectHolder holder, int position) {
-        holder.label.setText(mDataset.get(position).getmText1());
-        holder.dateTime.setText(mDataset.get(position).getmText2());
+        holder.date.setText(mDataset.get(position).getmDate());
+        holder.feeFor.setText(mDataset.get(position).getmFeeFor());
+        holder.totalAmount.setText(mDataset.get(position).getmTotalAmount());
+        holder.totalReceived.setText(mDataset.get(position).getmTotalReceive());
+        holder.totalDue.setText(mDataset.get(position).getmTotalDue());
+        holder.balance.setText(mDataset.get(position).getmBalance());
     }
     public void addItem(FeeSummaryDataObject dataObj, int index) {
         mDataset.add(index, dataObj);
