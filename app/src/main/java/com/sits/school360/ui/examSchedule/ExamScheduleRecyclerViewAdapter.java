@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class ExamScheduleRecyclerViewAdapter extends RecyclerView.Adapter<ExamScheduleRecyclerViewAdapter.DataObjectHolder> {
     private static String LOG_TAG = "FeeSummaryRecyclerViewAdapter";
-    private ArrayList<FeeDueDetailsDataObject> mDataset;
+    private ArrayList<ExamScheduleDataObject> mDataset;
     private static MyClickListener myClickListener;
     public static class DataObjectHolder extends RecyclerView.ViewHolder
             implements View
@@ -65,7 +65,7 @@ public class ExamScheduleRecyclerViewAdapter extends RecyclerView.Adapter<ExamSc
         holder.totalDue.setText(mDataset.get(position).getmTotalDue());
         holder.balance.setText(mDataset.get(position).getmBalance());
     }
-    public void addItem(FeeDueDetailsDataObject dataObj, int index) {
+    public void addItem(ExamScheduleDataObject dataObj, int index) {
         mDataset.add(index, dataObj);
         notifyItemInserted(index);
     }

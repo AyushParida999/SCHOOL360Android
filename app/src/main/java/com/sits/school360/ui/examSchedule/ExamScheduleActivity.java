@@ -15,8 +15,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.sits.school360.R;
-import com.sits.school360.ui.feeDueDetails.FeeDueDetailsDataObject;
-import com.sits.school360.ui.feeDueDetails.FeeDueDetailsRecyclerViewAdapter;
+import com.sits.school360.ui.examSchedule.ExamScheduleDataObject;
+import com.sits.school360.ui.examSchedule.ExamScheduleRecyclerViewAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -56,10 +56,10 @@ public class ExamScheduleActivity extends AppCompatActivity {
         loadCardsData(URL);
     }
 
-    private ArrayList<FeeDueDetailsDataObject> getDataSet() {
-        ArrayList results = new ArrayList<FeeDueDetailsDataObject>();
+    private ArrayList<ExamScheduleDataObject> getDataSet() {
+        ArrayList results = new ArrayList<ExamScheduleDataObject>();
         for (int index = 0; index < x; index++) {
-            FeeDueDetailsDataObject obj = new FeeDueDetailsDataObject(""/*+FeeFor.get(index).toString()*/,
+            ExamScheduleDataObject obj = new ExamScheduleDataObject(""/*+FeeFor.get(index).toString()*/,
                     ""/*"Date: " + Date.get(index).toString()*/, "Opening Balance : " + TotalAmount.get(index), "Total Deposit: " +
                     TotalReceive.get(index), "Total Due: " + TotalDue.get(index), "Balance: " + Balance.get(index));
             results.add(index, obj);
@@ -94,7 +94,7 @@ public class ExamScheduleActivity extends AppCompatActivity {
                         x = x + 1;
                     }
 
-                    mAdapter = new FeeDueDetailsRecyclerViewAdapter(getDataSet());
+                    mAdapter = new ExamScheduleRecyclerViewAdapter(getDataSet());
                     mRecyclerView.setAdapter(mAdapter);
                     //spinner.setAdapter(new ArrayAdapter<String>(FeeSummaryActivity.this, android.R.layout.simple_spinner_dropdown_item, SchoolNames));
                 } catch (JSONException e) {
