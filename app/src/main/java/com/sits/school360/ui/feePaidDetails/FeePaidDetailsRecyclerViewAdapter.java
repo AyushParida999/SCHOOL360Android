@@ -1,4 +1,4 @@
-package com.sits.school360.ui.transportDetails;
+package com.sits.school360.ui.feePaidDetails;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,13 +9,13 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.sits.school360.R;
-import com.sits.school360.ui.feeSummary.FeeSummaryDataObject;
+import com.sits.school360.ui.profileDetails.ProfileDetailsDataObject;
 
 import java.util.ArrayList;
 
-public class TransportDetailsRecyclerViewAdapter extends RecyclerView.Adapter<TransportDetailsRecyclerViewAdapter.DataObjectHolder> {
+public class FeePaidDetailsRecyclerViewAdapter extends RecyclerView.Adapter<FeePaidDetailsRecyclerViewAdapter.DataObjectHolder> {
     private static String LOG_TAG = "FeeSummaryRecyclerViewAdapter";
-    private ArrayList<TransportDetailsDataObject> mDataset;
+    private ArrayList<FeePaidDetailsDataObject> mDataset;
     private static MyClickListener myClickListener;
     public static class DataObjectHolder extends RecyclerView.ViewHolder
             implements View
@@ -45,7 +45,7 @@ public class TransportDetailsRecyclerViewAdapter extends RecyclerView.Adapter<Tr
     public void setOnItemClickListener(MyClickListener myClickListener) {
         this.myClickListener = myClickListener;
     }
-    public TransportDetailsRecyclerViewAdapter(ArrayList<TransportDetailsDataObject> myDataset) {
+    public FeePaidDetailsRecyclerViewAdapter(ArrayList<FeePaidDetailsDataObject> myDataset) {
         mDataset = myDataset;
     }
     @Override
@@ -65,7 +65,7 @@ public class TransportDetailsRecyclerViewAdapter extends RecyclerView.Adapter<Tr
         holder.totalDue.setText(mDataset.get(position).getmTotalDue());
         holder.balance.setText(mDataset.get(position).getmBalance());
     }
-    public void addItem(TransportDetailsDataObject dataObj, int index) {
+    public void addItem(FeePaidDetailsDataObject dataObj, int index) {
         mDataset.add(index, dataObj);
         notifyItemInserted(index);
     }

@@ -27,12 +27,12 @@
         <activity android:name=".SmsHistoryActivity" />
         <activity android:name=".MessagesActivity" />
         <activity android:name=".ui.profileDetails.MyProfileActivity" />
-        <activity android:name=".AttendanceActivity" />
+        <activity android:name=".ui.feeSummary.FeeSummaryActivity" />
         <activity android:name=".ui.transportDetails.TransportActivity" />
         <activity android:name=".ExamReportActivity" />
-        <activity android:name=".ExamScheduleActivity" />
-        <activity android:name=".FeeDueDetailsActivity" />
-        <activity android:name=".FeePaidDetailsActivity" />
+        <activity android:name=".ui.examSchedule.ExamScheduleActivity" />
+        <activity android:name=".ui.feeDueDetails.FeeDueDetailsActivity" />
+        <activity android:name=".ui.feePaidDetails.FeePaidDetailsActivity" />
         <activity android:name=".FeePaymentActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".LoginActivity" />
@@ -41,7 +41,7 @@
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ui.feeSummary.FeeSummaryActivity"
+            android:name=".AttendanceActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
