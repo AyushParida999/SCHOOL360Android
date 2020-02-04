@@ -37,13 +37,11 @@
         <activity android:name=".AttendanceActivity" />
         <activity android:name=".LoginActivity" />
         <activity
-            android:name=".MainActivity"
-            android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".HomeActivity"
-            android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:label="@string/title_activity_home" />
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
