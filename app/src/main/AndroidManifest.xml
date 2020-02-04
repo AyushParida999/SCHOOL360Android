@@ -20,7 +20,7 @@
         <activity android:name=".ProjectActivity" />
         <activity android:name=".HomeworkActivity" />
         <activity android:name=".CircularActivity" />
-        <activity android:name=".MyTeachersActivity" />
+        <activity android:name=".ui.teachersDetails.MyTeachersActivity" />
         <activity android:name=".TimeTableActivity" />
         <activity android:name=".SallybusActivity" />
         <activity android:name=".EventsActivity" />
@@ -29,7 +29,7 @@
         <activity android:name=".ui.profileDetails.MyProfileActivity" />
         <activity android:name=".ui.feeSummary.FeeSummaryActivity" />
         <activity android:name=".ui.transportDetails.TransportActivity" />
-        <activity android:name=".ExamReportActivity" />
+        <activity android:name=".ui.examReport.ExamReportActivity" />
         <activity android:name=".ui.examSchedule.ExamScheduleActivity" />
         <activity android:name=".ui.feeDueDetails.FeeDueDetailsActivity" />
         <activity android:name=".ui.feePaidDetails.FeePaidDetailsActivity" />
