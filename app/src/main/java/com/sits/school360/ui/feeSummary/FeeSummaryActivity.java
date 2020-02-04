@@ -60,8 +60,8 @@ public class FeeSummaryActivity extends AppCompatActivity {
     private ArrayList<FeeSummaryDataObject> getDataSet() {
         ArrayList results = new ArrayList<FeeSummaryDataObject>();
         for (int index = 0; index < x; index++) {
-            FeeSummaryDataObject obj = new FeeSummaryDataObject(""+FeeFor.get(index).toString(),
-                    "Date: " + Date.get(index).toString(),"Total Amount: "+TotalAmount.get(index),"Total Receive: "+
+            FeeSummaryDataObject obj = new FeeSummaryDataObject(""/*+FeeFor.get(index).toString()*/,
+                    ""/*"Date: " + Date.get(index).toString()*/,"Opening Balance : "+TotalAmount.get(index),"Total Deposit: "+
                     TotalReceive.get(index),"Total Due: "+TotalDue.get(index),"Balance: "+Balance.get(index));
             results.add(index, obj);
         }
@@ -81,9 +81,9 @@ public class FeeSummaryActivity extends AppCompatActivity {
                         JSONObject jsonObject1=jsonArray.getJSONObject(i);
                         String date=jsonObject1.getString("Date");
                         String feeFor=jsonObject1.getString("FeeFor");
-                        Integer totalAmount=jsonObject1.getInt("TotalAmount");
+                        Integer totalAmount=jsonObject1.getInt("Opening Balance");
                         Integer totalDue=jsonObject1.getInt("TotalDue");
-                        Integer totalReceive=jsonObject1.getInt("TotalReceive");
+                        Integer totalReceive=jsonObject1.getInt("TotalDeposit");
                         Integer balance=jsonObject1.getInt("Balance");
                         Date.add(date);
                         FeeFor.add(feeFor);
