@@ -34,14 +34,14 @@
         <activity android:name=".ui.feeDueDetails.FeeDueDetailsActivity" />
         <activity android:name=".ui.feePaidDetails.FeePaidDetailsActivity" />
         <activity android:name=".FeePaymentActivity" />
-        <activity android:name=".HomeActivity" />
+        <activity android:name=".AttendanceActivity" />
         <activity android:name=".LoginActivity" />
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".AttendanceActivity"
+            android:name=".HomeActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

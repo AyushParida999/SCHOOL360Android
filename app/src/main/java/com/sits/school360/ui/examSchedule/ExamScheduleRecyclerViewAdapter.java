@@ -45,7 +45,7 @@ public class ExamScheduleRecyclerViewAdapter extends RecyclerView.Adapter<ExamSc
     public void setOnItemClickListener(MyClickListener myClickListener) {
         this.myClickListener = myClickListener;
     }
-    public ExamScheduleRecyclerViewAdapter(ArrayList<FeeDueDetailsDataObject> myDataset) {
+    public ExamScheduleRecyclerViewAdapter(ArrayList<ExamScheduleDataObject> myDataset) {
         mDataset = myDataset;
     }
     @Override
