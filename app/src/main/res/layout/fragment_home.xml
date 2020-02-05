@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -59,6 +60,46 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/feePaidDetails"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/feeSummary2"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="15dp"
+        android:text="Fee Summary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/feeSummary" />
+
+    <Button
+        android:id="@+id/feePayment2"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:text="Fee Payment"
+        app:layout_constraintStart_toEndOf="@+id/feeSummary2"
+        app:layout_constraintTop_toBottomOf="@+id/feePayment" />
+
+    <Button
+        android:id="@+id/feePaidDetails2"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:text="Fee Paid Details"
+        app:layout_constraintStart_toEndOf="@+id/feePayment2"
+        app:layout_constraintTop_toBottomOf="@+id/feePaidDetails" />
+
+    <Button
+        android:id="@+id/feeDueDetails2"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:text="Fee Due Details"
+        app:layout_constraintStart_toEndOf="@+id/feePaidDetails2"
+        app:layout_constraintTop_toBottomOf="@+id/feeDueDetails" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

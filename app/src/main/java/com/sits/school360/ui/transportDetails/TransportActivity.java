@@ -77,10 +77,10 @@ public class TransportActivity extends AppCompatActivity {
                     JSONArray jsonArray = jsonObject.getJSONArray("name");
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                        String date = jsonObject1.getString("Date");
-                        String feeFor = jsonObject1.getString("FeeFor");
-                        Integer totalAmount = jsonObject1.getInt("TotalAmount");
-                        Integer totalDue = jsonObject1.getInt("TotalDue");
+                        String date = jsonObject1.getString("Name");
+                        String feeFor = jsonObject1.getString("Route");
+                        Integer totalAmount = jsonObject1.getInt("BusNo");
+                        Integer totalDue = jsonObject1.getInt("BusCost");
                         Integer totalReceive = jsonObject1.getInt("TotalReceive");
                         Integer balance = jsonObject1.getInt("Balance");
                         Date.add(date);

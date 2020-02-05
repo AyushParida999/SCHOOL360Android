@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/nav_fee"
-        android:name="com.sits.school360.ui.exam.FeeFragment"
+        android:name="com.sits.school360.ui.fee.FeeFragment"
         android:label="@string/menu_fee"
         tools:layout="@layout/fragment_fee" />
     <fragment
