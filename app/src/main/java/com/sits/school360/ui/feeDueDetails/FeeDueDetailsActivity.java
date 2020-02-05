@@ -79,7 +79,7 @@ public class FeeDueDetailsActivity extends AppCompatActivity {
                     JSONArray jsonArray = jsonObject.getJSONArray("name");
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                        String date = jsonObject1.getString("fee_due_no");
+                        String date = jsonObject1.getString("fee_due_number");
                         String feeFor = jsonObject1.getString("issue_date");
                         String totalAmount = jsonObject1.getString("due_date");
                         Integer totalDue = jsonObject1.getInt("amount");
