@@ -32,10 +32,10 @@ public class MyTeachersActivity extends AppCompatActivity {
     String URL = "http://apischools360.sitslive.com/Api/Fee?stuCode=931&key=@@schools@@@@@@@@@3@@@@&schoolCodeKey=3";
     ArrayList<String> Date;
     ArrayList<String> FeeFor;
-    ArrayList<Integer> TotalAmount;
-    ArrayList<Integer> TotalDue;
-    ArrayList<Integer> TotalReceive;
-    ArrayList<Integer> Balance;
+    ArrayList<String> TotalAmount;
+    ArrayList<String> TotalDue;
+    ArrayList<String> TotalReceive;
+    ArrayList<String> Balance;
 
     private static String LOG_TAG = "CardViewActivity";
 
@@ -79,18 +79,18 @@ public class MyTeachersActivity extends AppCompatActivity {
                     JSONArray jsonArray = jsonObject.getJSONArray("name");
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                        String date = jsonObject1.getString("Date");
-                        String feeFor = jsonObject1.getString("FeeFor");
-                        Integer totalAmount = jsonObject1.getInt("TotalAmount");
-                        Integer totalDue = jsonObject1.getInt("TotalDue");
-                        Integer totalReceive = jsonObject1.getInt("TotalReceive");
-                        Integer balance = jsonObject1.getInt("Balance");
+                        String date = jsonObject1.getString("teacher_name");
+                        String feeFor = jsonObject1.getString("subject");
+                        String totalAmount = jsonObject1.getString("contact");
+                        //String totalDue = jsonObject1.getString("TotalDue");
+                        //String totalReceive = jsonObject1.getString("TotalReceive");
+                        //String balance = jsonObject1.getString("Balance");
                         Date.add(date);
                         FeeFor.add(feeFor);
                         TotalAmount.add(totalAmount);
-                        TotalDue.add(totalDue);
-                        TotalReceive.add(totalReceive);
-                        Balance.add(balance);
+                        //TotalDue.add(totalDue);
+                        //TotalReceive.add(totalReceive);
+                        //Balance.add(balance);
                         x = x + 1;
                     }
 

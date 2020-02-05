@@ -79,18 +79,18 @@ public class FeePaidDetailsActivity extends AppCompatActivity {
                     JSONArray jsonArray = jsonObject.getJSONArray("name");
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                        String date = jsonObject1.getString("Date");
-                        String feeFor = jsonObject1.getString("FeeFor");
-                        Integer totalAmount = jsonObject1.getInt("TotalAmount");
-                        Integer totalDue = jsonObject1.getInt("TotalDue");
-                        Integer totalReceive = jsonObject1.getInt("TotalReceive");
-                        Integer balance = jsonObject1.getInt("Balance");
+                        String date = jsonObject1.getString("fee_receipt_number");
+                        String feeFor = jsonObject1.getString("date");
+                        Integer totalAmount = jsonObject1.getInt("amount");
+                        //Integer totalDue = jsonObject1.getInt("TotalDue");
+                        //Integer totalReceive = jsonObject1.getInt("TotalReceive");
+                        //Integer balance = jsonObject1.getInt("Balance");
                         Date.add(date);
                         FeeFor.add(feeFor);
                         TotalAmount.add(totalAmount);
-                        TotalDue.add(totalDue);
-                        TotalReceive.add(totalReceive);
-                        Balance.add(balance);
+                        //TotalDue.add(totalDue);
+                        //TotalReceive.add(totalReceive);
+                        //Balance.add(balance);
                         x = x + 1;
                     }
 

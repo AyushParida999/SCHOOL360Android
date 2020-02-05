@@ -14,12 +14,14 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.sits.school360.AttendanceActivity;
 import com.sits.school360.FeePaymentActivity;
 import com.sits.school360.MainActivity;
 import com.sits.school360.R;
 import com.sits.school360.ui.feeDueDetails.FeeDueDetailsActivity;
 import com.sits.school360.ui.feePaidDetails.FeePaidDetailsActivity;
 import com.sits.school360.ui.feeSummary.FeeSummaryActivity;
+import com.sits.school360.ui.transportDetails.TransportActivity;
 
 public class HomeFragment extends Fragment {
 
@@ -46,7 +48,7 @@ public class HomeFragment extends Fragment {
                 getActivity().startActivity(intent);
             }
         });
-        Button feePaidDetails = v.findViewById(R.id.feeDueDetails);
+        Button feePaidDetails = v.findViewById(R.id.feePaidDetails);
         feePaidDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,6 +61,22 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), FeeDueDetailsActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
+        Button attendance = v.findViewById(R.id.attendance);
+        attendance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), AttendanceActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
+        Button transport = v.findViewById(R.id.transport);
+        transport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), TransportActivity.class);
                 getActivity().startActivity(intent);
             }
         });

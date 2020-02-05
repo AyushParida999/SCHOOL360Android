@@ -1,4 +1,4 @@
-package com.sits.school360.ui.examSchedule;
+package com.sits.school360.ui.homeworkDetails;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,8 +15,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.sits.school360.R;
-import com.sits.school360.ui.examSchedule.ExamScheduleDataObject;
-import com.sits.school360.ui.examSchedule.ExamScheduleRecyclerViewAdapter;
+import com.sits.school360.ui.homeworkDetails.HomeworkDetailsDataObject;
+import com.sits.school360.ui.homeworkDetails.HomeworkDetailsRecyclerViewAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -24,7 +24,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class ExamScheduleActivity extends AppCompatActivity {
+public class HomeworkActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -34,15 +34,15 @@ public class ExamScheduleActivity extends AppCompatActivity {
     ArrayList<String> FeeFor;
     ArrayList<String> TotalAmount;
     ArrayList<String> TotalDue;
-    ArrayList<Integer> TotalReceive;
-    ArrayList<Integer> Balance;
+    ArrayList<String> TotalReceive;
+    ArrayList<String> Balance;
 
     private static String LOG_TAG = "CardViewActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_exam_schedule);
+        setContentView(R.layout.activity_my_teachers);
         Date = new ArrayList<>();
         FeeFor = new ArrayList<>();
         TotalAmount = new ArrayList<>();
@@ -56,10 +56,10 @@ public class ExamScheduleActivity extends AppCompatActivity {
         loadCardsData(URL);
     }
 
-    private ArrayList<ExamScheduleDataObject> getDataSet() {
-        ArrayList results = new ArrayList<ExamScheduleDataObject>();
+    private ArrayList<HomeworkDetailsDataObject> getDataSet() {
+        ArrayList results = new ArrayList<HomeworkDetailsDataObject>();
         for (int index = 0; index < x; index++) {
-            ExamScheduleDataObject obj = new ExamScheduleDataObject(""/*+FeeFor.get(index).toString()*/,
+            HomeworkDetailsDataObject obj = new HomeworkDetailsDataObject(""/*+FeeFor.get(index).toString()*/,
                     ""/*"Date: " + Date.get(index).toString()*/, "Opening Balance : " + TotalAmount.get(index), "Total Deposit: " +
                     TotalReceive.get(index), "Total Due: " + TotalDue.get(index), "Balance: " + Balance.get(index));
             results.add(index, obj);
@@ -79,22 +79,22 @@ public class ExamScheduleActivity extends AppCompatActivity {
                     JSONArray jsonArray = jsonObject.getJSONArray("name");
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                        String date = jsonObject1.getString("date");
+                        String date = jsonObject1.getString("teacher_name");
                         String feeFor = jsonObject1.getString("subject");
-                        String totalAmount = jsonObject1.getString("exam_type");
-                        String totalDue = jsonObject1.getString("time");
-                        Integer totalReceive = jsonObject1.getInt("maximum_marks");
-                        Integer balance = jsonObject1.getInt("minimum_marks");
+                        String totalAmount = jsonObject1.getString("assignment_title");
+                        String totalDue = jsonObject1.getString("file_link");
+                        //String totalReceive = jsonObject1.getString("TotalReceive");
+                        //String balance = jsonObject1.getString("Balance");
                         Date.add(date);
                         FeeFor.add(feeFor);
                         TotalAmount.add(totalAmount);
-                        TotalDue.add(totalDue);
-                        TotalReceive.add(totalReceive);
-                        Balance.add(balance);
+                        //TotalDue.add(totalDue);
+                        //TotalReceive.add(totalReceive);
+                        //Balance.add(balance);
                         x = x + 1;
                     }
 
-                    mAdapter = new ExamScheduleRecyclerViewAdapter(getDataSet());
+                    mAdapter = new HomeworkDetailsRecyclerViewAdapter(getDataSet());
                     mRecyclerView.setAdapter(mAdapter);
                     //spinner.setAdapter(new ArrayAdapter<String>(FeeSummaryActivity.this, android.R.layout.simple_spinner_dropdown_item, SchoolNames));
                 } catch (JSONException e) {

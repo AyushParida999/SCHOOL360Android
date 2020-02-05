@@ -27,7 +27,7 @@ public class TransportActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private int x;
-    String URL = "http://apischools360.sitslive.com/Api/Fee?stuCode=931&key=@@schools@@@@@@@@@3@@@@&schoolCodeKey=3";
+    String URL = "http://apischools360.sitslive.com/Api/TransportDetails?stuCode=931&key=@@schools@@@@@@@@@3@@@@&schoolCodeKey=3";
     ArrayList<String> Date;
     ArrayList<String> FeeFor;
     ArrayList<Integer> TotalAmount;
@@ -57,9 +57,9 @@ public class TransportActivity extends AppCompatActivity {
     private ArrayList<TransportDetailsDataObject> getDataSet() {
         ArrayList results = new ArrayList<TransportDetailsDataObject>();
         for (int index = 0; index < x; index++) {
-            TransportDetailsDataObject obj = new TransportDetailsDataObject(""/*+FeeFor.get(index).toString()*/,
-                    ""/*"Date: " + Date.get(index).toString()*/, "Opening Balance : " + TotalAmount.get(index), "Total Deposit: " +
-                    TotalReceive.get(index), "Total Due: " + TotalDue.get(index), "Balance: " + Balance.get(index));
+            TransportDetailsDataObject obj = new TransportDetailsDataObject("Registration Number: "+FeeFor.get(index),
+                    "Student Name: "+Date.get(index), "Address: " + TotalAmount.get(index), "Route Code: " +
+                    TotalReceive.get(index), "Opening Balance: " + TotalDue.get(index), "Amount: " + Balance.get(index));
             results.add(index, obj);
         }
         return results;
@@ -77,18 +77,18 @@ public class TransportActivity extends AppCompatActivity {
                     JSONArray jsonArray = jsonObject.getJSONArray("name");
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                        String date = jsonObject1.getString("Name");
-                        String feeFor = jsonObject1.getString("Route");
-                        Integer totalAmount = jsonObject1.getInt("BusNo");
-                        Integer totalDue = jsonObject1.getInt("BusCost");
-                        Integer totalReceive = jsonObject1.getInt("TotalReceive");
-                        Integer balance = jsonObject1.getInt("Balance");
+                        String date = jsonObject1.getString("student_name");
+                        String feeFor = jsonObject1.getString("route_number");
+                        Integer totalAmount = jsonObject1.getInt("monthly_amount");
+                        Integer totalDue = jsonObject1.getInt("fee_dues");
+                        //Integer totalReceive = jsonObject1.getInt("op_bal");
+                        //Integer balance = jsonObject1.getInt("amount");
                         Date.add(date);
                         FeeFor.add(feeFor);
                         TotalAmount.add(totalAmount);
                         TotalDue.add(totalDue);
-                        TotalReceive.add(totalReceive);
-                        Balance.add(balance);
+                        //TotalReceive.add(totalReceive);
+                        //Balance.add(balance);
                         x = x + 1;
                     }
 

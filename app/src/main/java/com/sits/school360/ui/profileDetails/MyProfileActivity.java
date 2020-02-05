@@ -32,10 +32,10 @@ public class MyProfileActivity extends AppCompatActivity {
     String URL = "http://apischools360.sitslive.com/Api/Fee?stuCode=931&key=@@schools@@@@@@@@@3@@@@&schoolCodeKey=3";
     ArrayList<String> Date;
     ArrayList<String> FeeFor;
-    ArrayList<Integer> TotalAmount;
-    ArrayList<Integer> TotalDue;
-    ArrayList<Integer> TotalReceive;
-    ArrayList<Integer> Balance;
+    ArrayList<String> TotalAmount;
+    ArrayList<String> TotalDue;
+    ArrayList<String> TotalReceive;
+    ArrayList<String> Balance;
 
     private static String LOG_TAG = "CardViewActivity";
 
@@ -79,18 +79,24 @@ public class MyProfileActivity extends AppCompatActivity {
                     JSONArray jsonArray = jsonObject.getJSONArray("name");
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                        String date = jsonObject1.getString("Date");
-                        String feeFor = jsonObject1.getString("FeeFor");
-                        Integer totalAmount = jsonObject1.getInt("TotalAmount");
-                        Integer totalDue = jsonObject1.getInt("TotalDue");
-                        Integer totalReceive = jsonObject1.getInt("TotalReceive");
-                        Integer balance = jsonObject1.getInt("Balance");
+                        String date = jsonObject1.getString("name");
+                        String feeFor = jsonObject1.getString("registration_number");
+                        String totalAmount = jsonObject1.getString("class");
+                        String totalDue = jsonObject1.getString("father_name");
+                        String totalReceive = jsonObject1.getString("mother_name");
+                        String balance = jsonObject1.getString("phone");
                         Date.add(date);
                         FeeFor.add(feeFor);
                         TotalAmount.add(totalAmount);
                         TotalDue.add(totalDue);
                         TotalReceive.add(totalReceive);
                         Balance.add(balance);
+                        String date2 = jsonObject1.getString("address");
+                        String feeFor2 = jsonObject1.getString("need_transport");
+                        String totalAmount2 = jsonObject1.getString("nee_hostel");
+                        Date.add(date2);
+                        FeeFor.add(feeFor2);
+                        TotalAmount.add(totalAmount2);
                         x = x + 1;
                     }
 
