@@ -12,9 +12,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
@@ -65,6 +67,8 @@ public class LoginActivity extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                ((TextView) view).setTextColor(ContextCompat.getColor(LoginActivity.this, R.color.colorPrimary));
+
                 String country= spinner.getItemAtPosition(spinner.getSelectedItemPosition()).toString();
                 Toast.makeText(getApplicationContext(),country,Toast.LENGTH_LONG).show();
             }

@@ -34,15 +34,45 @@
             android:textAllCaps="true"
             android:textSize="16sp" />
 
-        <Spinner
-            android:id="@+id/spinner"
-            android:layout_width="200dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="100dp"
-            android:layout_marginEnd="50dp"
-            android:autofillHints="Select School"
-            android:background="@drawable/input_field" />
+        <RelativeLayout
+            android:id="@+id/lyGiftList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_weight="8"
+                android:orientation="horizontal"
+                android:background="@drawable/shape_"
+                tools:ignore="UselessParent">
+
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:overlapAnchor="false"
+                    android:spinnerMode="dropdown"
+                    android:autofillHints="Select School"
+                    />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:layout_marginTop="-5dp"
+                android:paddingLeft="3dp"
+                android:paddingRight="3dp"
+                android:text=""
+               />
+        </RelativeLayout>
+
         <!-- Snippet from "Add text fields" section goes here. -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -83,12 +113,11 @@
                 android:id="@+id/button"
                 android:layout_width="250dp"
                 android:layout_height="50dp"
-                android:layout_marginStart="100dp"
                 android:layout_marginTop="30dp"
-                android:layout_marginEnd="100dp"
+                android:backgroundTint="@color/colorAccent"
+                android:layout_centerInParent="true"
+                android:textColor="#ffff"
                 android:text="LOGIN"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                  />
         </RelativeLayout>
     </LinearLayout>
