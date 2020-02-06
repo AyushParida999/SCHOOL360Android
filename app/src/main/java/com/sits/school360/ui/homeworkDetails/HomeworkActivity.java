@@ -79,9 +79,9 @@ public class HomeworkActivity extends AppCompatActivity {
                     JSONArray jsonArray = jsonObject.getJSONArray("name");
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                        String date = jsonObject1.getString("teacher_name");
-                        String feeFor = jsonObject1.getString("subject");
-                        String totalAmount = jsonObject1.getString("assignment_title");
+                        String date = jsonObject1.getString("assignment_title");
+                        String feeFor = jsonObject1.getString("assignment_description");
+                        String totalAmount = jsonObject1.getString("subject");
                         String totalDue = jsonObject1.getString("file_link");
                         //String totalReceive = jsonObject1.getString("TotalReceive");
                         //String balance = jsonObject1.getString("Balance");
