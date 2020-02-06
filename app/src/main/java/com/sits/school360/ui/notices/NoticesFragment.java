@@ -22,8 +22,8 @@ public class NoticesFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         noticesViewModel =
                 ViewModelProviders.of(this).get(NoticesViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_profile, container, false);
-        final TextView textView = root.findViewById(R.id.text_share);
+        View root = inflater.inflate(R.layout.fragment_notices, container, false);
+        final TextView textView = root.findViewById(R.id.text_tools);
         noticesViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {

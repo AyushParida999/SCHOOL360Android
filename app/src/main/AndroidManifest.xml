@@ -26,7 +26,10 @@
         <activity android:name=".EventsActivity" />
         <activity android:name=".SmsHistoryActivity" />
         <activity android:name=".MessagesActivity" />
-        <activity android:name=".ui.profileDetails.MyProfileActivity" />
+        <activity android:name=".ui.profileDetails.MyProfileActivity"
+            android:label="@string/title_activity_profile"
+            android:theme="@style/AppTheme.ProfileTheme"
+            />
         <activity android:name=".ui.feeSummary.FeeSummaryActivity" />
         <activity android:name=".ui.transportDetails.TransportActivity" />
         <activity android:name=".ui.examReport.ExamReportActivity" />
