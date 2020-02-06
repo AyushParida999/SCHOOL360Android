@@ -92,10 +92,11 @@ public class LoginActivity extends AppCompatActivity {
                     for(int i=0;i<jsonArray.length();i++) {
                         JSONObject jsonObject1 = jsonArray.getJSONObject(i);
                         String tempp = jsonObject1.getString("reg_no");
+                        editTextUname=(TextInputEditText)findViewById(R.id.editText);
                         if (tempp.equals(editTextUname.getText().toString())) {
 
                             Intent intent = new Intent(view.getContext(), HomeActivity.class);
-                            intent.putExtra("url",url);
+                            GlobalVariables.id=editTextUname.getText().toString();
                             view.getContext().startActivity(intent);
                         }
                         else{

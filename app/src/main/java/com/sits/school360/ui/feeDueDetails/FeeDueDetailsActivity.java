@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -14,6 +15,7 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.sits.school360.GlobalVariables;
 import com.sits.school360.R;
 import com.sits.school360.ui.feeDueDetails.FeeDueDetailsDataObject;
 import com.sits.school360.ui.feeDueDetails.FeeDueDetailsRecyclerViewAdapter;
@@ -29,7 +31,7 @@ public class FeeDueDetailsActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private int x;
-    String URL = "http://apischools360.sitslive.com/Api/Fee?stuCode=931&key=@@schools@@@@@@@@@3@@@@&schoolCodeKey=3";
+    String URL = "http://localhost:58808/AndroidAPI.asmx/GetFeeDueDetails?studentCode=";
     ArrayList<String> Date;
     ArrayList<String> FeeFor;
     ArrayList<String> TotalAmount;
@@ -59,8 +61,8 @@ public class FeeDueDetailsActivity extends AppCompatActivity {
     private ArrayList<FeeDueDetailsDataObject> getDataSet() {
         ArrayList results = new ArrayList<FeeDueDetailsDataObject>();
         for (int index = 0; index < x; index++) {
-            FeeDueDetailsDataObject obj = new FeeDueDetailsDataObject(""/*+FeeFor.get(index).toString()*/,
-                    ""/*"Date: " + Date.get(index).toString()*/, "Opening Balance : " + TotalAmount.get(index), "Total Deposit: " +
+            FeeDueDetailsDataObject obj = new FeeDueDetailsDataObject("Fee Due Number: "+FeeFor.get(index),"Issue Date: "+Date.get(index),
+                     "Opening Balance : " + TotalAmount.get(index), "Total Deposit: " +
                     TotalReceive.get(index), "Total Due: " + TotalDue.get(index), "Balance: " + Balance.get(index));
             results.add(index, obj);
         }
@@ -69,7 +71,9 @@ public class FeeDueDetailsActivity extends AppCompatActivity {
 
     private void loadCardsData(String url) {
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+        String str = GlobalVariables.id;
+        String test=url+str;
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url+str, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 String[] res = new String[]{"a", response};
