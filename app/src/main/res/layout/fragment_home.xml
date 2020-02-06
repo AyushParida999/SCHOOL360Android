@@ -19,13 +19,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <Button
         android:id="@+id/feeSummary"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginStart="23dp"
         android:layout_marginTop="46dp"
-        android:text="Fee Summary"
+        android:text="Fee Summary test"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
