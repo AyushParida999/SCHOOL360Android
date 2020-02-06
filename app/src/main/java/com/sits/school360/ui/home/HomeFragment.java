@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -32,7 +33,15 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_home, container, false);
 
-        Button feeSummary = v.findViewById(R.id.feeSummary);
+        CardView personalDetails=v.findViewById(R.id.PersonalDetails);
+        personalDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), FeeSummaryActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
+       /* Button feeSummary = v.findViewById(R.id.feeSummary);
         feeSummary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,7 +88,7 @@ public class HomeFragment extends Fragment {
                 Intent intent = new Intent(getActivity(), TransportActivity.class);
                 getActivity().startActivity(intent);
             }
-        });
+        });*/
         return v;
     }
 }

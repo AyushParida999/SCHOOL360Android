@@ -22,7 +22,7 @@ public class HomeworkFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         homeworkViewModel =
                 ViewModelProviders.of(this).get(HomeworkViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_profile, container, false);
+        View root = inflater.inflate(R.layout.fragment_homework, container, false);
  /*       final TextView textView = root.findViewById(R.id.text_share);
         homeworkViewModel.getText().observe(this, new Observer<String>() {
             @Override

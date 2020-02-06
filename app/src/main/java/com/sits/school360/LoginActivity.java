@@ -60,6 +60,7 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getApplicationContext(),"Please Wait...",Toast.LENGTH_LONG).show();
                 String newURL=URLLogin+editTextUname.getText().toString()+SchoolCodeKey+ ID.get(spinner.getSelectedItemPosition())+Password+editTextPws.getText().toString()+Key;
                 loginEvent(newURL,v);
             }
@@ -89,20 +90,27 @@ public class LoginActivity extends AppCompatActivity {
                     JSONObject jsonObject=new JSONObject(res[1]);
 
                     JSONArray jsonArray=jsonObject.getJSONArray("name");
-                    for(int i=0;i<jsonArray.length();i++) {
-                        JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                        String tempp = jsonObject1.getString("reg_no");
-                        if (tempp.equals(editTextUname.getText().toString())) {
+                    if(jsonArray.length()<=0){
+                        Toast.makeText(getApplicationContext(),"Please Check Username and Password",Toast.LENGTH_LONG).show();
+                    }
+                    else{
+                        for(int i=0;i<jsonArray.length();i++) {
+                            JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+                            String tempp = jsonObject1.getString("reg_no");
+                            if (tempp.equals(editTextUname.getText().toString())) {
 
-                            Intent intent = new Intent(view.getContext(), HomeActivity.class);
-                            intent.putExtra("url",url);
-                            view.getContext().startActivity(intent);
-                        }
-                        else{
+                                Intent intent = new Intent(view.getContext(), HomeActivity.class);
+                                intent.putExtra("url",url);
+                                view.getContext().startActivity(intent);
+                            }
+                            else{
 
+                            }
                         }
                     }
-                }catch (JSONException e){e.printStackTrace();}
+                }catch (JSONException e){
+                    Toast.makeText(getApplicationContext(),"Please Re-Open the Application..",Toast.LENGTH_LONG).show();
+                    e.printStackTrace();}
             }
 
         }, new Response.ErrorListener() {
