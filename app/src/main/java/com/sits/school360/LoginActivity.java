@@ -67,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                ((TextView) view).setTextColor(ContextCompat.getColor(LoginActivity.this, R.color.colorPrimary));
+                ((TextView) view).setTextColor(ContextCompat.getColor(LoginActivity.this, R.color.colorAccent));
 
                 String country= spinner.getItemAtPosition(spinner.getSelectedItemPosition()).toString();
                 Toast.makeText(getApplicationContext(),country,Toast.LENGTH_LONG).show();
