@@ -5,12 +5,10 @@ import java.util.ArrayList;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,6 +25,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.textfield.TextInputEditText;
+import com.sits.school360.ui.homeDetails.HomeActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -97,10 +96,11 @@ public class LoginActivity extends AppCompatActivity {
                         for(int i=0;i<jsonArray.length();i++) {
                             JSONObject jsonObject1 = jsonArray.getJSONObject(i);
                             String tempp = jsonObject1.getString("reg_no");
+                            Integer temp= jsonObject1.getInt("student_code");
                             if (tempp.equals(editTextUname.getText().toString())) {
 
                                 Intent intent = new Intent(view.getContext(), HomeActivity.class);
-                                GlobalVariables.id=editTextUname.getText().toString();
+                                GlobalVariables.id=temp;
                                 view.getContext().startActivity(intent);
                             }
                             else{

@@ -30,7 +30,7 @@ public class ExamScheduleActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private int x;
-    String URL = "http://apischools360.sitslive.com/Api/Fee?stuCode=931&key=@@schools@@@@@@@@@3@@@@&schoolCodeKey=3";
+    String URL = "http://45.115.62.5:89/AndroidAPI.asmx/GetExamScheduleDetails?classCode=";
     ArrayList<String> Date;
     ArrayList<String> FeeFor;
     ArrayList<String> TotalAmount;
@@ -60,9 +60,9 @@ public class ExamScheduleActivity extends AppCompatActivity {
     private ArrayList<ExamScheduleDataObject> getDataSet() {
         ArrayList results = new ArrayList<ExamScheduleDataObject>();
         for (int index = 0; index < x; index++) {
-            ExamScheduleDataObject obj = new ExamScheduleDataObject(""/*+FeeFor.get(index).toString()*/,
-                    ""/*"Date: " + Date.get(index).toString()*/, "Opening Balance : " + TotalAmount.get(index), "Total Deposit: " +
-                    TotalReceive.get(index), "Total Due: " + TotalDue.get(index), "Balance: " + Balance.get(index));
+            ExamScheduleDataObject obj = new ExamScheduleDataObject("Date: "+Date.get(index),
+                    "Subject: "+FeeFor.get(index),"Exam Type: "+TotalAmount.get(index),"",
+                    "Maximum Marks: "+TotalReceive.get(index),"Minimum Marks: "+Balance.get(index));
             results.add(index, obj);
         }
         return results;
@@ -70,7 +70,7 @@ public class ExamScheduleActivity extends AppCompatActivity {
 
     private void loadCardsData(String url) {
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        String str = GlobalVariables.id;
+        Integer str = GlobalVariables.id;
         String test=url+str;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
@@ -85,15 +85,15 @@ public class ExamScheduleActivity extends AppCompatActivity {
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObject1 = jsonArray.getJSONObject(i);
                         String date = jsonObject1.getString("date");
-                        String feeFor = jsonObject1.getString("subject");
+                        String feeFor = jsonObject1.getString("subject_name");
                         String totalAmount = jsonObject1.getString("exam_type");
-                        String totalDue = jsonObject1.getString("time");
+                        //String totalDue = jsonObject1.getString("time");
                         Integer totalReceive = jsonObject1.getInt("maximum_marks");
                         Integer balance = jsonObject1.getInt("minimum_marks");
                         Date.add(date);
                         FeeFor.add(feeFor);
                         TotalAmount.add(totalAmount);
-                        TotalDue.add(totalDue);
+                        //TotalDue.add(totalDue);
                         TotalReceive.add(totalReceive);
                         Balance.add(balance);
                         x = x + 1;

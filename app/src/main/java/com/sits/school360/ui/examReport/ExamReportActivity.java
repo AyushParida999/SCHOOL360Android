@@ -59,9 +59,8 @@ public class ExamReportActivity extends AppCompatActivity {
     private ArrayList<ExamReportDataObject> getDataSet() {
         ArrayList results = new ArrayList<ExamReportDataObject>();
         for (int index = 0; index < x; index++) {
-            ExamReportDataObject obj = new ExamReportDataObject(""/*+FeeFor.get(index).toString()*/,
-                    ""/*"Date: " + Date.get(index).toString()*/, "Opening Balance : " + TotalAmount.get(index), "Total Deposit: " +
-                    TotalReceive.get(index), "Total Due: " + TotalDue.get(index), "Balance: " + Balance.get(index));
+            ExamReportDataObject obj = new ExamReportDataObject("Subject Name: "+Date.get(index),"Maximum Marks: "+FeeFor.get(index),
+                    "Minimum Marks: "+TotalAmount.get(index),"Obtained Marks: "+TotalDue.get(index),"","");
             results.add(index, obj);
         }
         return results;

@@ -19,6 +19,7 @@ import com.sits.school360.AttendanceActivity;
 import com.sits.school360.FeePaymentActivity;
 import com.sits.school360.MainActivity;
 import com.sits.school360.R;
+import com.sits.school360.ui.examSchedule.ExamScheduleActivity;
 import com.sits.school360.ui.feeDueDetails.FeeDueDetailsActivity;
 import com.sits.school360.ui.feePaidDetails.FeePaidDetailsActivity;
 import com.sits.school360.ui.feeSummary.FeeSummaryActivity;
@@ -46,6 +47,22 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), FeeDueDetailsActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
+        CardView examSchedule=v.findViewById(R.id.examSchedule);
+        examSchedule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), ExamScheduleActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
+        CardView transport=v.findViewById(R.id.transport);
+        transport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), TransportActivity.class);
                 getActivity().startActivity(intent);
             }
         });

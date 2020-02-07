@@ -71,7 +71,7 @@ public class FeeDueDetailsActivity extends AppCompatActivity {
 
     private void loadCardsData(String url) {
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        String str = GlobalVariables.id;
+        Integer str = GlobalVariables.id;
         String test=url+str;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, test, new Response.Listener<String>() {
             @Override

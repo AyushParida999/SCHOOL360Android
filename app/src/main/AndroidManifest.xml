@@ -41,7 +41,7 @@
         <activity android:name=".LoginActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".HomeActivity"/>
+            android:name=".ui.homeDetails.HomeActivity"/>
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_home">

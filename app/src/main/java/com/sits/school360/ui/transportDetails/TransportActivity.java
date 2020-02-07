@@ -14,6 +14,7 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.sits.school360.GlobalVariables;
 import com.sits.school360.R;
 
 import org.json.JSONArray;
@@ -27,7 +28,7 @@ public class TransportActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private int x;
-    String URL = "http://apischools360.sitslive.com/Api/TransportDetails?stuCode=931&key=@@schools@@@@@@@@@3@@@@&schoolCodeKey=3";
+    String URL = "http://45.115.62.5:89/AndroidAPI.asmx/GetTransportDetails?studentCode=";
     ArrayList<String> Date;
     ArrayList<String> FeeFor;
     ArrayList<Integer> TotalAmount;
@@ -57,9 +58,8 @@ public class TransportActivity extends AppCompatActivity {
     private ArrayList<TransportDetailsDataObject> getDataSet() {
         ArrayList results = new ArrayList<TransportDetailsDataObject>();
         for (int index = 0; index < x; index++) {
-            TransportDetailsDataObject obj = new TransportDetailsDataObject("Registration Number: "+FeeFor.get(index),
-                    "Student Name: "+Date.get(index), "Address: " + TotalAmount.get(index), "Route Code: " +
-                    TotalReceive.get(index), "Opening Balance: " + TotalDue.get(index), "Amount: " + Balance.get(index));
+            TransportDetailsDataObject obj = new TransportDetailsDataObject("Name: "+Date.get(index),"Route Number: "+FeeFor.get(index),
+                    "Monthly Amount: "+TotalAmount.get(index),"Fee Amount: "+TotalDue.get(index),"Due Amount: "+TotalReceive.get(index),"");
             results.add(index, obj);
         }
         return results;
@@ -67,10 +67,14 @@ public class TransportActivity extends AppCompatActivity {
 
     private void loadCardsData(String url) {
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+        Integer str = GlobalVariables.id;
+        String test=url+str;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                String[] res = new String[]{"a", response};
+                String[] arr=response.split("<string xmlns=\"http://tempuri.org/\">");
+                String[] res2=arr[1].split("</");
+                String[] res = new String[]{"a", res2[0]};
                 res[1] = "{\"name\":" + res[1] + "}";
                 try {
                     JSONObject jsonObject = new JSONObject(res[1]);
@@ -80,14 +84,14 @@ public class TransportActivity extends AppCompatActivity {
                         String date = jsonObject1.getString("student_name");
                         String feeFor = jsonObject1.getString("route_number");
                         Integer totalAmount = jsonObject1.getInt("monthly_amount");
-                        Integer totalDue = jsonObject1.getInt("fee_dues");
-                        //Integer totalReceive = jsonObject1.getInt("op_bal");
+                        Integer totalDue = jsonObject1.getInt("fee_amount");
+                        Integer totalReceive = jsonObject1.getInt("due_amount");
                         //Integer balance = jsonObject1.getInt("amount");
                         Date.add(date);
                         FeeFor.add(feeFor);
                         TotalAmount.add(totalAmount);
                         TotalDue.add(totalDue);
-                        //TotalReceive.add(totalReceive);
+                        TotalReceive.add(totalReceive);
                         //Balance.add(balance);
                         x = x + 1;
                     }
