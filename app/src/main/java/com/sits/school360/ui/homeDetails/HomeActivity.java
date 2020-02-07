@@ -1,6 +1,10 @@
 package com.sits.school360.ui.homeDetails;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.Image;
 import android.os.Bundle;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -14,10 +18,12 @@ import com.android.volley.toolbox.Volley;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -49,6 +55,7 @@ import android.view.Menu;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
@@ -152,7 +159,16 @@ public class HomeActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.action_logout:
                 GlobalVariables.id=null;
-                startActivity(new Intent(HomeActivity.this, LoginActivity.class));
+                new AlertDialog.Builder(this)
+                        .setTitle("Logout")
+                        .setMessage("Do you really want to Logout?")
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                startActivity(new Intent(HomeActivity.this, LoginActivity.class));
+                            }})
+                        .setNegativeButton(android.R.string.no, null).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -165,6 +181,7 @@ public class HomeActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
     private void loadCardsData(String url) {
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         Integer str = GlobalVariables.id;
@@ -183,10 +200,10 @@ public class HomeActivity extends AppCompatActivity {
                         JSONObject jsonObject1 = jsonArray.getJSONObject(i);
                         String date = jsonObject1.getString("name");
                         String feeFor = jsonObject1.getString("phone");
-                        String totalAmount = jsonObject1.getString("image");
+                        String ImageInBit = jsonObject1.getString("image");
                         Date.add(date);
                         FeeFor.add(feeFor);
-                        TotalAmount.add(totalAmount);
+                        TotalAmount.add(ImageInBit);
                         x = x + 1;
                     }
 
@@ -196,6 +213,11 @@ public class HomeActivity extends AppCompatActivity {
                     nav_user.setText(Date.get(0));
                     TextView nav_contact=(TextView)hView.findViewById(R.id.name2);
                     nav_contact.setText(FeeFor.get(0));
+
+                    ImageView imageView=(ImageView) hView.findViewById(R.id.imageView);
+                    byte[] decodedString = Base64.decode(TotalAmount.get(0), Base64.DEFAULT);
+                    Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+                    imageView.setImageBitmap(decodedByte);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -210,5 +232,28 @@ public class HomeActivity extends AppCompatActivity {
         RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
         stringRequest.setRetryPolicy(policy);
         requestQueue.add(stringRequest);
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
+        builder.setTitle(R.string.app_name);
+        builder.setIcon(R.mipmap.ic_launcher);
+        builder.setMessage("Do you want to exit?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        finish();
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert = builder.create();
+        alert.show();
+
     }
 }
