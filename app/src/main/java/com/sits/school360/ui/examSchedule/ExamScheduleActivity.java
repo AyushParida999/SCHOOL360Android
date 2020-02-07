@@ -72,7 +72,7 @@ public class ExamScheduleActivity extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         Integer str = GlobalVariables.id;
         String test=url+str;
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, test, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 String[] arr=response.split("<string xmlns=\"http://tempuri.org/\">");
