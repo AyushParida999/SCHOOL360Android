@@ -100,7 +100,7 @@ public class LoginActivity extends AppCompatActivity {
                             if (tempp.equals(editTextUname.getText().toString())) {
 
                                 Intent intent = new Intent(view.getContext(), HomeActivity.class);
-                                intent.putExtra("url",url);
+                                GlobalVariables.id=editTextUname.getText().toString();
                                 view.getContext().startActivity(intent);
                             }
                             else{

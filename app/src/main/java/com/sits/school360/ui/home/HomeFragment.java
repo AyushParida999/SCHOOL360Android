@@ -41,6 +41,14 @@ public class HomeFragment extends Fragment {
                 getActivity().startActivity(intent);
             }
         });
+        CardView feeDueDetails=v.findViewById(R.id.feeDueDetails);
+        feeDueDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), FeeDueDetailsActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
        /* Button feeSummary = v.findViewById(R.id.feeSummary);
         feeSummary.setOnClickListener(new View.OnClickListener() {
             @Override

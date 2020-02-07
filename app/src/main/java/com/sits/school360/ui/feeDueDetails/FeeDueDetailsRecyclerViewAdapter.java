@@ -14,7 +14,7 @@ import com.sits.school360.ui.feePaidDetails.FeePaidDetailsDataObject;
 import java.util.ArrayList;
 
 public class FeeDueDetailsRecyclerViewAdapter extends RecyclerView.Adapter<FeeDueDetailsRecyclerViewAdapter.DataObjectHolder> {
-    private static String LOG_TAG = "FeeSummaryRecyclerViewAdapter";
+    private static String LOG_TAG = "FeeDueDetailsRecycleViewAdapter";
     private ArrayList<FeeDueDetailsDataObject> mDataset;
     private static MyClickListener myClickListener;
     public static class DataObjectHolder extends RecyclerView.ViewHolder

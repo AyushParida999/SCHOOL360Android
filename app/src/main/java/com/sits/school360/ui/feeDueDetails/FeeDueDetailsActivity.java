@@ -31,7 +31,7 @@ public class FeeDueDetailsActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private int x;
-    String URL = "http://localhost:58808/AndroidAPI.asmx/GetFeeDueDetails?studentCode=";
+    String URL = "http://45.115.62.5:89/AndroidAPI.asmx/GetFeeDueDetails?StudentCode=";
     ArrayList<String> Date;
     ArrayList<String> FeeFor;
     ArrayList<String> TotalAmount;
@@ -51,7 +51,7 @@ public class FeeDueDetailsActivity extends AppCompatActivity {
         TotalReceive = new ArrayList<>();
         TotalDue = new ArrayList<>();
         Balance = new ArrayList<>();
-        mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
+        mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view2);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
@@ -63,7 +63,7 @@ public class FeeDueDetailsActivity extends AppCompatActivity {
         for (int index = 0; index < x; index++) {
             FeeDueDetailsDataObject obj = new FeeDueDetailsDataObject("Fee Due Number: "+FeeFor.get(index),"Issue Date: "+Date.get(index),
                      "Opening Balance : " + TotalAmount.get(index), "Total Deposit: " +
-                    TotalReceive.get(index), "Total Due: " + TotalDue.get(index), "Balance: " + Balance.get(index));
+                    TotalReceive.get(index), "Total Due: " + TotalDue.get(index), "");
             results.add(index, obj);
         }
         return results;
@@ -73,10 +73,12 @@ public class FeeDueDetailsActivity extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         String str = GlobalVariables.id;
         String test=url+str;
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url+str, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, test, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                String[] res = new String[]{"a", response};
+                String[] arr=response.split("<string xmlns=\"http://tempuri.org/\">");
+                String[] res2=arr[1].split("</");
+                String[] res = new String[]{"a", res2[0]};
                 res[1] = "{\"name\":" + res[1] + "}";
                 try {
                     JSONObject jsonObject = new JSONObject(res[1]);

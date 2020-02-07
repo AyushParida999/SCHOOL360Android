@@ -14,6 +14,7 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.sits.school360.GlobalVariables;
 import com.sits.school360.R;
 import com.sits.school360.ui.examSchedule.ExamScheduleDataObject;
 import com.sits.school360.ui.examSchedule.ExamScheduleRecyclerViewAdapter;
@@ -69,10 +70,14 @@ public class ExamScheduleActivity extends AppCompatActivity {
 
     private void loadCardsData(String url) {
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+        String str = GlobalVariables.id;
+        String test=url+str;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                String[] res = new String[]{"a", response};
+                String[] arr=response.split("<string xmlns=\"http://tempuri.org/\">");
+                String[] res2=arr[1].split("</");
+                String[] res = new String[]{"a", res2[0]};
                 res[1] = "{\"name\":" + res[1] + "}";
                 try {
                     JSONObject jsonObject = new JSONObject(res[1]);
