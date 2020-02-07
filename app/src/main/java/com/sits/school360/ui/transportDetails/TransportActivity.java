@@ -69,7 +69,7 @@ public class TransportActivity extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         Integer str = GlobalVariables.id;
         String test=url+str;
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, test, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 String[] arr=response.split("<string xmlns=\"http://tempuri.org/\">");
@@ -80,13 +80,24 @@ public class TransportActivity extends AppCompatActivity {
                     JSONObject jsonObject = new JSONObject(res[1]);
                     JSONArray jsonArray = jsonObject.getJSONArray("name");
                     for (int i = 0; i < jsonArray.length(); i++) {
+                        String date,feeFor;
+                        Integer totalAmount,totalDue,totalReceive;
                         JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                        String date = jsonObject1.getString("student_name");
-                        String feeFor = jsonObject1.getString("route_number");
-                        Integer totalAmount = jsonObject1.getInt("monthly_amount");
-                        Integer totalDue = jsonObject1.getInt("fee_amount");
-                        Integer totalReceive = jsonObject1.getInt("due_amount");
-                        //Integer balance = jsonObject1.getInt("amount");
+                        if(jsonObject1.getString("student_name")==null){
+                            date="You dont avail Transport Facility";
+                            feeFor="";
+                            totalAmount=null;
+                            totalDue=null;
+                            totalReceive=null;
+                        }
+                        else {
+                            date = jsonObject1.getString("student_name");
+                            feeFor = jsonObject1.getString("route_number");
+                            totalAmount = jsonObject1.getInt("monthly_amount");
+                            totalDue = jsonObject1.getInt("fee_amount");
+                            totalReceive = jsonObject1.getInt("due_amount");
+                            //Integer balance = jsonObject1.getInt("amount");
+                        }
                         Date.add(date);
                         FeeFor.add(feeFor);
                         TotalAmount.add(totalAmount);
