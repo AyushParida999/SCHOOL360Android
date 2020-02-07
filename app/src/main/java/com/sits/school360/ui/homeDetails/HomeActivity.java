@@ -24,6 +24,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -204,6 +205,8 @@ public class HomeActivity extends AppCompatActivity {
                         Date.add(date);
                         FeeFor.add(feeFor);
                         TotalAmount.add(ImageInBit);
+//                        GlobalVariables.uname=date;
+//                        GlobalVariables.uphone=feeFor;
                         x = x + 1;
                     }
 
@@ -217,7 +220,10 @@ public class HomeActivity extends AppCompatActivity {
                     ImageView imageView=(ImageView) hView.findViewById(R.id.imageView);
                     byte[] decodedString = Base64.decode(TotalAmount.get(0), Base64.DEFAULT);
                     Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+                    //GlobalVariables.uimage=decodedByte;
                     imageView.setImageBitmap(decodedByte);
+
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
