@@ -15,6 +15,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 
 import androidx.navigation.NavController;
@@ -23,10 +24,21 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
+import com.sits.school360.AttendanceActivity;
+import com.sits.school360.EventsActivity;
 import com.sits.school360.GlobalVariables;
+import com.sits.school360.LoginActivity;
+import com.sits.school360.MyNoticesActivity;
 import com.sits.school360.R;
+import com.sits.school360.ui.examSchedule.ExamScheduleActivity;
+import com.sits.school360.ui.feeDueDetails.FeeDueDetailsActivity;
 import com.sits.school360.ui.feePaidDetails.FeePaidDetailsRecyclerViewAdapter;
 import com.sits.school360.ui.feeSummary.FeeSummaryActivity;
+import com.sits.school360.ui.homeworkDetails.HomeworkActivity;
+import com.sits.school360.ui.profileDetails.MyProfileActivity;
+import com.sits.school360.ui.teachersDetails.MyTeachersActivity;
+import com.sits.school360.ui.timetableDetails.TimeTableActivity;
+import com.sits.school360.ui.transportDetails.TransportActivity;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -35,6 +47,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
@@ -65,6 +78,60 @@ public class HomeActivity extends AppCompatActivity {
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         loadCardsData(URL);
         NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem menuItem) {
+                int id = menuItem.getItemId();
+                switch (id) {
+                    case R.id.nav_home:
+                        Intent i = new Intent(HomeActivity.this, HomeActivity.class);
+                        startActivity(i);
+                        break;
+                    case R.id.nav_exam:
+                        Intent i2 = new Intent(HomeActivity.this, ExamScheduleActivity.class);
+                        startActivity(i2);
+                        break;
+                    case R.id.nav_fee:
+                        Intent i3 = new Intent(HomeActivity.this, FeeDueDetailsActivity.class);
+                        startActivity(i3);
+                        break;
+                    case R.id.nav_transport:
+                        Intent i4 = new Intent(HomeActivity.this, TransportActivity.class);
+                        startActivity(i4);
+                        break;
+                    case R.id.nav_attendance:
+                        Intent i5 = new Intent(HomeActivity.this, AttendanceActivity.class);
+                        startActivity(i5);
+                        break;
+                    case R.id.nav_profile:
+                        Intent i6 = new Intent(HomeActivity.this, MyProfileActivity.class);
+                        startActivity(i6);
+                        break;
+                    case R.id.nav_notices:
+                        Intent i7 = new Intent(HomeActivity.this, MyNoticesActivity.class);
+                        startActivity(i7);
+                        break;
+                    case R.id.nav_events:
+                        Intent i8 = new Intent(HomeActivity.this, EventsActivity.class);
+                        startActivity(i8);
+                        break;
+                    case R.id.nav_timetable:
+                        Intent i9 = new Intent(HomeActivity.this, TimeTableActivity.class);
+                        startActivity(i9);
+                        break;
+                    case R.id.nav_teachers:
+                        Intent i10 = new Intent(HomeActivity.this, MyTeachersActivity.class);
+                        startActivity(i10);
+                        break;
+                    case R.id.nav_homework:
+                        Intent i11 = new Intent(HomeActivity.this, HomeworkActivity.class);
+                        startActivity(i11);
+                        break;
+                }
+                return false;
+            }
+        });
+
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home,R.id.nav_fee, R.id.nav_exam, R.id.nav_transport,
                 R.id.nav_attendance, R.id.nav_profile,R.id.nav_notices,
@@ -80,6 +147,16 @@ public class HomeActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.home, menu);
         return true;
+    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_logout:
+                GlobalVariables.id=null;
+                startActivity(new Intent(HomeActivity.this, LoginActivity.class));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override
