@@ -15,6 +15,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -25,6 +27,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.sits.school360.R;
+import com.sits.school360.ui.examSchedule.ExamScheduleRecyclerViewAdapter;
 import com.sits.school360.ui.feeSummary.FeeSummaryRecyclerViewAdapter;
 
 import org.json.JSONArray;
@@ -42,14 +45,6 @@ public class ExamFragment extends Fragment {
     public ExamFragment() {
         // Required empty public constructor
     }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @return A new instance of fragment Volley.
-     */
-    // TODO: Rename and change types and number of parameters
     public static ExamFragment newInstance() {
         ExamFragment fragment = new ExamFragment();
         Bundle args = new Bundle();
@@ -76,21 +71,29 @@ public class ExamFragment extends Fragment {
         return v;
     }
 
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
     private void standardQueueStringRequest(View v) {
         final TextView mTextView = (TextView) v.findViewById(R.id.text_gallery);
-
+        mRecyclerView = (RecyclerView) getView().findViewById(R.id.my_recycler_view);
+        mRecyclerView.setHasFixedSize(true);
+        //mLayoutManager = new LinearLayoutManager(this);
+        //mRecyclerView.setLayoutManager(mLayoutManager);
         // StringRequest with VOLLEY with Standard RequestQueue
         // Instantiate the RequestQueue.
         requestQueue = Volley.newRequestQueue(v.getContext());
-        String url = "http://apischools360.sitslive.com/Api/Fee?stuCode=931&key=@@schools@@@@@@@@@3@@@@&schoolCodeKey=3";
+        String url = "http://45.115.62.5:89/AndroidAPI.asmx/GetExamScheduleDetails?classCode=";
 
         // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        String[] res= new String[]{"a",response};
-                        res[1]="{\"name\":"+res[1]+"}";
+                        String[] arr=response.split("<string xmlns=\"http://tempuri.org/\">");
+                        String[] res2=arr[1].split("</");
+                        String[] res = new String[]{"a", res2[0]};
+                        res[1] = "{\"name\":" + res[1] + "}";
                         try{
                             JSONObject jsonObject=new JSONObject(res[1]);
                             JSONArray jsonArray=jsonObject.getJSONArray("name");
@@ -104,7 +107,8 @@ public class ExamFragment extends Fragment {
                                 Integer balance=jsonObject1.getInt("Balance");
                                 test=feeFor;
                             }
-
+//                            mAdapter = new ExamRecyclerViewAdapter(getDataSet());
+//                            mRecyclerView.setAdapter(mAdapter);
                             //spinner.setAdapter(new ArrayAdapter<String>(FeeSummaryActivity.this, android.R.layout.simple_spinner_dropdown_item, SchoolNames));
                         }catch (JSONException e){e.printStackTrace();}
                         // Display the first 500 characters of the response string.

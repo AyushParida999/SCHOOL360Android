@@ -16,11 +16,13 @@
         tools:ignore="MissingConstraints">
 
         <ImageView
+            android:id="@+id/profileImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/profile_round" />
 
         <TextView
+            android:id="@+id/headName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="School 360"
@@ -29,6 +31,7 @@
             android:textStyle="bold"/>
 
         <TextView
+            android:id="@+id/phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="abc@school360.com"
@@ -51,6 +54,7 @@
                 android:background="@drawable/profile_bk"/>
 
             <TextView
+                android:id="@+id/currentClass"
                 android:text="Class \n6th"
                 android:textColor="#ffff"
                 style="@style/profileStyledBackButton" />
@@ -91,6 +95,7 @@
 
                 <TextView
                     style="@style/profileDetailsMiniText"
+                    android:id="@+id/inName"
                     android:layout_toRightOf="@id/nameImageView"
                     android:text="Abc xyz" />
 
@@ -116,37 +121,16 @@
 
                 <TextView
                     style="@style/profileDetailsMiniText"
+                    android:id="@+id/inPhone"
                     android:layout_toRightOf="@id/mobileImageView"
                     android:text="+91-8129999999" />
 
             </RelativeLayout>
 
-            <View style="@style/proifleDetailsView" />
 
-            <RelativeLayout
-                style="@style/profileDetailsLayout"
-                android:layout_height="49dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp">
-
-                <ImageView
-                    android:id="@+id/emailImageView"
-                    style="@style/profileDetailsImage"
-                    android:src="@drawable/ic_email" />
-
-                <TextView
-                    style="@style/profileDetailsTextMain"
-                    android:layout_toRightOf="@id/emailImageView"
-                    android:text="Email" />
-
-                <TextView
-                    style="@style/profileDetailsMiniText"
-                    android:layout_toRightOf="@id/emailImageView"
-                    android:text="abc@school360.com" />
-
-            </RelativeLayout>
 
             <View style="@style/proifleDetailsView" />
+
 
             <RelativeLayout
                 style="@style/profileDetailsLayout"
@@ -166,11 +150,11 @@
 
                 <TextView
                     style="@style/profileDetailsMiniText"
+                    android:id="@+id/inAddress"
                     android:layout_toRightOf="@id/addressImageView"
                     android:text="abc address abd" />
 
             </RelativeLayout>
-
             <View style="@style/proifleDetailsView" />
 
             <RelativeLayout
@@ -187,15 +171,40 @@
                 <TextView
                     style="@style/profileDetailsTextMain"
                     android:layout_toRightOf="@id/dobImageView"
-                    android:text="D.O.B" />
+                    android:text="Mother Name" />
 
                 <TextView
                     style="@style/profileDetailsMiniText"
+                    android:id="@+id/mother"
                     android:layout_toRightOf="@id/dobImageView"
                     android:text="12-05-1990" />
 
             </RelativeLayout>
+            <View style="@style/proifleDetailsView" />
 
+            <RelativeLayout
+                style="@style/profileDetailsLayout"
+                android:layout_height="49dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
+
+                <ImageView
+                    android:id="@+id/emailImageView"
+                    style="@style/profileDetailsImage"
+                    android:src="@drawable/ic_email" />
+
+                <TextView
+                    style="@style/profileDetailsTextMain"
+                    android:layout_toRightOf="@id/emailImageView"
+                    android:text="Father Name" />
+
+                <TextView
+                    style="@style/profileDetailsMiniText"
+                    android:id="@+id/father"
+                    android:layout_toRightOf="@id/emailImageView"
+                    android:text="abc@school360.com" />
+
+            </RelativeLayout>
             <View style="@style/proifleDetailsView" />
         </LinearLayout>
     </LinearLayout>
