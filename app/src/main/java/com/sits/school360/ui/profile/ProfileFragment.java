@@ -124,7 +124,6 @@ public class ProfileFragment extends Fragment {
 
                         byte[] decodedString = Base64.decode(_image, Base64.DEFAULT);
                         Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
-                        //GlobalVariables.uimage=decodedByte;
                         mProfileImage.setImageBitmap(decodedByte);
                     }
                 }, new Response.ErrorListener() {
