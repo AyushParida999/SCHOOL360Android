@@ -42,14 +42,14 @@
             android:theme="@style/AppTheme.ProfileTheme"
             android:parentActivityName=".ui.homeDetails.HomeActivity"/>
         <activity android:name=".ui.feeSummary.FeeSummaryActivity"
-            android:parentActivityName=".ui.homeDetails.HomeActivity"/>
+            android:parentActivityName=".ui.exam.ExamFragment"/>
         <activity android:name=".ui.transportDetails.TransportActivity"
             android:parentActivityName=".ui.homeDetails.HomeActivity"/>
         <activity android:name=".ui.examReport.ExamReportActivity" />
         <activity android:name=".ui.examSchedule.ExamScheduleActivity"
             android:parentActivityName=".ui.homeDetails.HomeActivity"/>
         <activity android:name=".ui.feeDueDetails.FeeDueDetailsActivity"
-            android:parentActivityName=".ui.homeDetails.HomeActivity"/>
+            android:parentActivityName=".ui.exam.ExamFragment"/>
         <activity android:name=".ui.feePaidDetails.FeePaidDetailsActivity"
             android:parentActivityName=".ui.homeDetails.HomeActivity"/>
         <activity android:name=".FeePaymentActivity"

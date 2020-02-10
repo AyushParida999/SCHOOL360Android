@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:id="@+id/academicsLayout"
+    >
 
     <View
         android:layout_width="match_parent"
@@ -15,46 +15,10 @@
         app:layout_constraintTop_toTopOf="parent"
         android:background="@drawable/ic_bg_topheader"/>
 
-    <ImageView
-        android:id="@+id/user_photo"
-        android:layout_width="71dp"
-        android:layout_height="71dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="24dp"
-        android:src="@drawable/ic_photo_user"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:textSize="20sp"
-        android:text="Abdul Aziz Ahwan"
-        android:id="@+id/user_name"
-        android:textColor="#ffffff"
-        android:fontFamily="@font/mo_re"
-        android:layout_marginTop="32dp"
-        android:layout_marginStart="18dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/user_photo"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <TextView
-        android:textSize="16sp"
-        android:text="4101410141"
-        android:id="@+id/user_id"
-        android:fontFamily="@font/mo_re"
-        android:textColor="#ffffff"
-        android:layout_marginTop="32dp"
-        android:layout_marginStart="18dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/user_photo"
-        app:layout_constraintTop_toTopOf="@id/user_name"/>
-
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="50dp"
         android:layout_marginBottom="60dp"
         android:alignmentMode="alignMargins"
         android:columnCount="2"
@@ -67,7 +31,9 @@
         app:layout_editor_absoluteX="0dp">
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/Attendance"
             android:layout_width="0dp"
+            android:clickable="true"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
@@ -88,14 +54,14 @@
 
                 <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="60dp"
                     android:layout_gravity="center_horizontal"
                     android:background="@drawable/ic_profile"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Personal Data"
+                    android:text="Attendance"
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/mo_re"
                     android:textColor="@color/textcardColor"
@@ -106,6 +72,8 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/TimeTable"
+            android:clickable="true"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
@@ -127,14 +95,14 @@
 
                 <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="60dp"
                     android:layout_gravity="center_horizontal"
                     android:background="@drawable/ic_course_schedule"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Course Schedule"
+                    android:text="Time Table"
                     android:textColor="@color/textcardColor"
                     android:textSize="14sp"
                     android:layout_marginTop="8dp"
@@ -145,6 +113,8 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/Notices"
+            android:clickable="true"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
@@ -166,14 +136,14 @@
 
                 <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="60dp"
                     android:layout_gravity="center_horizontal"
                     android:background="@drawable/ic_gpa_reult"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Study Result"
+                    android:text="Notices"
                     android:textColor="@color/textcardColor"
                     android:textSize="14sp"
                     android:layout_marginTop="8dp"
@@ -184,6 +154,8 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/MyTeachers"
+            android:clickable="true"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
@@ -205,14 +177,14 @@
 
                 <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="60dp"
                     android:layout_gravity="center_horizontal"
                     android:background="@drawable/ic_attendance_recap"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Attendance Recap"
+                    android:text="My Teachers"
                     android:layout_marginTop="8dp"
                     android:textColor="@color/textcardColor"
                     android:textSize="14sp"
@@ -223,6 +195,8 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/Homework"
+            android:clickable="true"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
@@ -244,14 +218,14 @@
 
                 <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="60dp"
                     android:layout_gravity="center_horizontal"
                     android:background="@drawable/ic_course_book"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Course Booking"
+                    android:text="Homework"
                     android:textColor="@color/textcardColor"
                     android:textSize="14sp"
                     android:layout_marginTop="8dp"
@@ -262,6 +236,8 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/Events"
+            android:clickable="true"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
@@ -283,14 +259,14 @@
 
                 <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="60dp"
                     android:layout_gravity="center_horizontal"
                     android:background="@drawable/ic_course_plan"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Course Plan"
+                    android:text="Events"
                     android:layout_marginTop="8dp"
                     android:textColor="@color/textcardColor"
                     android:textSize="14sp"
@@ -302,4 +278,4 @@
 
     </GridLayout>
 
-</androidx.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

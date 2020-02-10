@@ -21,33 +21,13 @@
             android:icon="@drawable/bus_school"
             android:title="@string/menu_transport" />
         <item
-            android:id="@+id/nav_attendance"
-            android:icon="@drawable/checkbox_marked"
-            android:title="@string/menu_attendance" />
-        <item
             android:id="@+id/nav_profile"
             android:icon="@drawable/account_circle"
             android:title="@string/menu_profile" />
         <item
-            android:id="@+id/nav_notices"
-            android:icon="@drawable/bulletin_board"
-            android:title="@string/menu_notices" />
-        <item
-            android:id="@+id/nav_events"
-            android:icon="@drawable/calendar"
-            android:title="@string/menu_events" />
-        <item
-            android:id="@+id/nav_timetable"
-            android:icon="@drawable/timetable"
-            android:title="@string/menu_timetable" />
-        <item
-            android:id="@+id/nav_teachers"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="@string/menu_teachers" />
-        <item
-            android:id="@+id/nav_homework"
+            android:id="@+id/nav_academics"
             android:icon="@drawable/briefcase"
-            android:title="@string/menu_homework" />
+            android:title="@string/menu_academics" />
     </group>
 
 </menu>

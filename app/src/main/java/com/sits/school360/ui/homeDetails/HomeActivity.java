@@ -86,65 +86,11 @@ public class HomeActivity extends AppCompatActivity {
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         loadCardsData(URL);
         NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(MenuItem menuItem) {
-                int id = menuItem.getItemId();
-                switch (id) {
-                    case R.id.nav_home:
-                        Intent i = new Intent(HomeActivity.this, HomeActivity.class);
-                        startActivity(i);
-                        break;
-                    case R.id.nav_exam:
-                        Intent i2 = new Intent(HomeActivity.this, ExamScheduleActivity.class);
-                        startActivity(i2);
-                        break;
-                    case R.id.nav_fee:
-                        Intent i3 = new Intent(HomeActivity.this, FeeDueDetailsActivity.class);
-                        startActivity(i3);
-                        break;
-                    case R.id.nav_transport:
-                        Intent i4 = new Intent(HomeActivity.this, TransportActivity.class);
-                        startActivity(i4);
-                        break;
-                    case R.id.nav_attendance:
-                        Intent i5 = new Intent(HomeActivity.this, AttendanceActivity.class);
-                        startActivity(i5);
-                        break;
-                    case R.id.nav_profile:
-                        Intent i6 = new Intent(HomeActivity.this, MyProfileActivity.class);
-                        startActivity(i6);
-                        break;
-                    case R.id.nav_notices:
-                        Intent i7 = new Intent(HomeActivity.this, MyNoticesActivity.class);
-                        startActivity(i7);
-                        break;
-                    case R.id.nav_events:
-                        Intent i8 = new Intent(HomeActivity.this, EventsActivity.class);
-                        startActivity(i8);
-                        break;
-                    case R.id.nav_timetable:
-                        Intent i9 = new Intent(HomeActivity.this, TimeTableActivity.class);
-                        startActivity(i9);
-                        break;
-                    case R.id.nav_teachers:
-                        Intent i10 = new Intent(HomeActivity.this, MyTeachersActivity.class);
-                        startActivity(i10);
-                        break;
-                    case R.id.nav_homework:
-                        Intent i11 = new Intent(HomeActivity.this, HomeworkActivity.class);
-                        startActivity(i11);
-                        break;
-                }
-                return false;
-            }
-        });
+
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home,R.id.nav_fee, R.id.nav_exam, R.id.nav_transport,
-                R.id.nav_attendance, R.id.nav_profile,R.id.nav_notices,
-                R.id.nav_events,R.id.nav_timetable,R.id.nav_teachers,
-                R.id.nav_homework,R.id.nav_logout)
+                R.id.nav_academics, R.id.nav_profile)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
