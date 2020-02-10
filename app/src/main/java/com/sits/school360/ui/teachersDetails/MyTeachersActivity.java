@@ -30,7 +30,7 @@ public class MyTeachersActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private int x;
-    String URL = "http://45.115.62.5:89/AndroidAPI.asmx/GetTeachersDetails?today=";
+    String URL = "http://45.115.62.5:89/AndroidAPI.asmx/GetTeachersDetails?studentCode=";
     ArrayList<String> Date;
     ArrayList<String> FeeFor;
     ArrayList<String> TotalAmount;
