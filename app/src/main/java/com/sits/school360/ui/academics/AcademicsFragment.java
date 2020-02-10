@@ -1,32 +1,80 @@
 package com.sits.school360.ui.academics;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.sits.school360.AttendanceActivity;
+import com.sits.school360.EventsActivity;
+import com.sits.school360.MyNoticesActivity;
 import com.sits.school360.R;
+import com.sits.school360.ui.homeworkDetails.HomeworkActivity;
+import com.sits.school360.ui.teachersDetails.MyTeachersActivity;
+import com.sits.school360.ui.timetableDetails.TimeTableActivity;
 
 public class AcademicsFragment extends Fragment {
 
     private AcademicsViewModel academicsViewModel;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        academicsViewModel =
-                ViewModelProviders.of(this).get(AcademicsViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_academics, container, false);
- /*       final TextView textView = root.findViewById(R.id.text_share);
-        academicsViewModel.getText().observe(this, new Observer<String>() {
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.fragment_academics, container, false);
+        CardView attendance=v.findViewById(R.id.Attendance);
+        attendance.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), AttendanceActivity.class);
+                getActivity().startActivity(intent);
             }
-        });*/
-        return root;
+        });
+        CardView timeTable=v.findViewById(R.id.TimeTable);
+        timeTable.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), TimeTableActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
+        CardView notices=v.findViewById(R.id.Notices);
+        notices.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), MyNoticesActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
+        CardView myTeachers=v.findViewById(R.id.MyTeachers);
+        myTeachers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), MyTeachersActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
+        CardView homework=v.findViewById(R.id.Homework);
+        homework.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), HomeworkActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
+        CardView events=v.findViewById(R.id.Events);
+        events.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), EventsActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
+        return v;
     }
 }

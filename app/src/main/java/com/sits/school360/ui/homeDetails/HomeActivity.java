@@ -146,7 +146,7 @@ public class HomeActivity extends AppCompatActivity {
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObject1 = jsonArray.getJSONObject(i);
                         String date = jsonObject1.getString("name");
-                        String feeFor = jsonObject1.getString("phone");
+                        String feeFor = jsonObject1. getString("phone");
                         String ImageInBit = jsonObject1.getString("image");
                         Date.add(date);
                         FeeFor.add(feeFor);

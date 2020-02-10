@@ -14,17 +14,11 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.sits.school360.AttendanceActivity;
-import com.sits.school360.EventsActivity;
-import com.sits.school360.MyNoticesActivity;
 import com.sits.school360.R;
 import com.sits.school360.ui.examSchedule.ExamScheduleActivity;
 import com.sits.school360.ui.feeDueDetails.FeeDueDetailsActivity;
 import com.sits.school360.ui.feePaidDetails.FeePaidDetailsActivity;
 import com.sits.school360.ui.feeSummary.FeeSummaryActivity;
-import com.sits.school360.ui.homeworkDetails.HomeworkActivity;
-import com.sits.school360.ui.teachersDetails.MyTeachersActivity;
-import com.sits.school360.ui.timetableDetails.TimeTableActivity;
 
 public class FeeFragment extends Fragment {
 
@@ -34,51 +28,27 @@ public class FeeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_academics, container, false);
-        CardView attendance=v.findViewById(R.id.Attendance);
-        attendance.setOnClickListener(new View.OnClickListener() {
+        CardView feeSummary=v.findViewById(R.id.FeeSummary);
+        feeSummary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), AttendanceActivity.class);
+                Intent intent = new Intent(getActivity(), FeeSummaryActivity.class);
                 getActivity().startActivity(intent);
             }
         });
-        CardView timeTable=v.findViewById(R.id.TimeTable);
-        timeTable.setOnClickListener(new View.OnClickListener() {
+        CardView feeDueDetails=v.findViewById(R.id.FeeDueDetails);
+        feeDueDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), TimeTableActivity.class);
+                Intent intent = new Intent(getActivity(), FeeDueDetailsActivity.class);
                 getActivity().startActivity(intent);
             }
         });
-        CardView notices=v.findViewById(R.id.Notices);
-        notices.setOnClickListener(new View.OnClickListener() {
+        CardView feeReceiveDetails=v.findViewById(R.id.FeeReceiveDetails);
+        feeReceiveDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), MyNoticesActivity.class);
-                getActivity().startActivity(intent);
-            }
-        });
-        CardView myTeachers=v.findViewById(R.id.MyTeachers);
-        myTeachers.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), MyTeachersActivity.class);
-                getActivity().startActivity(intent);
-            }
-        });
-        CardView homework=v.findViewById(R.id.Homework);
-        homework.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), HomeworkActivity.class);
-                getActivity().startActivity(intent);
-            }
-        });
-        CardView events=v.findViewById(R.id.Events);
-        events.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), EventsActivity.class);
+                Intent intent = new Intent(getActivity(), FeePaidDetailsActivity.class);
                 getActivity().startActivity(intent);
             }
         });
