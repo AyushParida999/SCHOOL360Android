@@ -4,7 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.examReport.ExamReportActivity">
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
     <Spinner
         android:id="@+id/classCode"
         android:layout_width="120dp"
@@ -20,6 +23,8 @@
         android:layout_width="120dp"
         android:layout_height="30dp"
         android:entries="@android:array/organizationTypes" />
+</LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/my_recycler_view"
         android:layout_width="match_parent"
