@@ -14,6 +14,7 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.sits.school360.GlobalVariables;
 import com.sits.school360.R;
 import com.sits.school360.ui.profileDetails.ProfileDetailsDataObject;
 import com.sits.school360.ui.profileDetails.ProfileDetailsRecyclerViewAdapter;
@@ -29,7 +30,7 @@ public class MyProfileActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private int x;
-    String URL = "http://apischools360.sitslive.com/Api/Fee?stuCode=931&key=@@schools@@@@@@@@@3@@@@&schoolCodeKey=3";
+    String URL = "http://45.115.62.5:89/AndroidAPI.asmx/GetProfileDetails?studentCode=";
     ArrayList<String> Date;
     ArrayList<String> FeeFor;
     ArrayList<String> TotalAmount;
@@ -69,7 +70,9 @@ public class MyProfileActivity extends AppCompatActivity {
 
     private void loadCardsData(String url) {
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+        Integer str = GlobalVariables.id;
+        String test=url+str;
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, test, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 String[] res = new String[]{"a", response};

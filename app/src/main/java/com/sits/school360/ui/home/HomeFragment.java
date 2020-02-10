@@ -24,10 +24,13 @@ import com.sits.school360.FeePaymentActivity;
 import com.sits.school360.GlobalVariables;
 import com.sits.school360.MainActivity;
 import com.sits.school360.R;
+import com.sits.school360.ui.academics.AcademicsFragment;
+import com.sits.school360.ui.exam.ExamFragment;
 import com.sits.school360.ui.examSchedule.ExamScheduleActivity;
 import com.sits.school360.ui.feeDueDetails.FeeDueDetailsActivity;
 import com.sits.school360.ui.feePaidDetails.FeePaidDetailsActivity;
 import com.sits.school360.ui.feeSummary.FeeSummaryActivity;
+import com.sits.school360.ui.profile.ProfileFragment;
 import com.sits.school360.ui.transportDetails.TransportActivity;
 
 public class HomeFragment extends Fragment {
@@ -53,12 +56,12 @@ public class HomeFragment extends Fragment {
         personalDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), FeeSummaryActivity.class);
+                Intent intent = new Intent(getActivity(), ProfileFragment.class);
                 getActivity().startActivity(intent);
             }
         });
-        CardView feeDueDetails=v.findViewById(R.id.feeDueDetails);
-        feeDueDetails.setOnClickListener(new View.OnClickListener() {
+        CardView fee=v.findViewById(R.id.fee);
+        fee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), FeeDueDetailsActivity.class);
@@ -69,7 +72,7 @@ public class HomeFragment extends Fragment {
         examSchedule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), ExamScheduleActivity.class);
+                Intent intent = new Intent(getActivity(), ExamFragment.class);
                 getActivity().startActivity(intent);
             }
         });
@@ -81,54 +84,22 @@ public class HomeFragment extends Fragment {
                 getActivity().startActivity(intent);
             }
         });
-       /* Button feeSummary = v.findViewById(R.id.feeSummary);
-        feeSummary.setOnClickListener(new View.OnClickListener() {
+        CardView academics=v.findViewById(R.id.academics);
+        academics.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), FeeSummaryActivity.class);
+                Intent intent = new Intent(getActivity(), AcademicsFragment.class);
                 getActivity().startActivity(intent);
             }
         });
-        Button feePayment = v.findViewById(R.id.feePayment);
-        feePayment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), FeePaymentActivity.class);
-                getActivity().startActivity(intent);
-            }
-        });
-        Button feePaidDetails = v.findViewById(R.id.feePaidDetails);
-        feePaidDetails.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), FeePaidDetailsActivity.class);
-                getActivity().startActivity(intent);
-            }
-        });
-        Button feeDueDetails = v.findViewById(R.id.feeDueDetails);
-        feeDueDetails.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), FeeDueDetailsActivity.class);
-                getActivity().startActivity(intent);
-            }
-        });
-        Button attendance = v.findViewById(R.id.attendance);
-        attendance.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), AttendanceActivity.class);
-                getActivity().startActivity(intent);
-            }
-        });
-        Button transport = v.findViewById(R.id.transport);
-        transport.setOnClickListener(new View.OnClickListener() {
+        CardView homework=v.findViewById(R.id.homework);
+        homework.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), TransportActivity.class);
                 getActivity().startActivity(intent);
             }
-        });*/
+        });
         return v;
     }
 }
