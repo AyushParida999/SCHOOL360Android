@@ -31,6 +31,8 @@ import com.sits.school360.ui.feeDueDetails.FeeDueDetailsActivity;
 import com.sits.school360.ui.feePaidDetails.FeePaidDetailsActivity;
 import com.sits.school360.ui.feeSummary.FeeSummaryActivity;
 import com.sits.school360.ui.profile.ProfileFragment;
+import com.sits.school360.ui.profileDetails.MyProfileActivity;
+import com.sits.school360.ui.teachersDetails.MyTeachersActivity;
 import com.sits.school360.ui.transportDetails.TransportActivity;
 
 public class HomeFragment extends Fragment {
@@ -56,7 +58,7 @@ public class HomeFragment extends Fragment {
         personalDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), ProfileFragment.class);
+                Intent intent = new Intent(getActivity(), MyProfileActivity.class);
                 getActivity().startActivity(intent);
             }
         });
@@ -64,7 +66,7 @@ public class HomeFragment extends Fragment {
         fee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), FeeDueDetailsActivity.class);
+                Intent intent = new Intent(getActivity(), FeeSummaryActivity.class);
                 getActivity().startActivity(intent);
             }
         });
@@ -72,7 +74,7 @@ public class HomeFragment extends Fragment {
         examSchedule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), ExamFragment.class);
+                Intent intent = new Intent(getActivity(), ExamScheduleActivity.class);
                 getActivity().startActivity(intent);
             }
         });
@@ -88,7 +90,7 @@ public class HomeFragment extends Fragment {
         academics.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), AcademicsFragment.class);
+                Intent intent = new Intent(getActivity(), MyTeachersActivity.class);
                 getActivity().startActivity(intent);
             }
         });

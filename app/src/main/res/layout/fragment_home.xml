@@ -21,13 +21,12 @@
         android:layout_height="71dp"
         android:layout_marginStart="26dp"
         android:layout_marginTop="24dp"
-        android:src="@drawable/ic_photo_user"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:textSize="20sp"
-        android:text="ABC XYZ"
+        android:text="Vikash Kumar"
         android:id="@+id/user_name"
         android:textColor="#ffffff"
         android:fontFamily="@font/mo_re"
@@ -40,7 +39,7 @@
 
     <TextView
         android:textSize="16sp"
-        android:text="9711111111"
+        android:text="9771743054"
         android:id="@+id/user_id"
         android:fontFamily="@font/mo_re"
         android:textColor="#ffffff"
@@ -138,7 +137,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Exam"
+                    android:text="Exam Schedule"
                     android:textColor="@color/textcardColor"
                     android:textSize="14sp"
                     android:layout_marginTop="8dp"
@@ -179,7 +178,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Fee"
+                    android:text="Fee Summary"
                     android:textColor="@color/textcardColor"
                     android:textSize="14sp"
                     android:layout_marginTop="8dp"
@@ -220,7 +219,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Academics"
+                    android:text="My Teachers"
                     android:layout_marginTop="8dp"
                     android:textColor="@color/textcardColor"
                     android:textSize="14sp"

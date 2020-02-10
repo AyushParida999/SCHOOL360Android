@@ -60,9 +60,8 @@ public class MyTeachersActivity extends AppCompatActivity {
     private ArrayList<TeacherDetailsDataObject> getDataSet() {
         ArrayList results = new ArrayList<TeacherDetailsDataObject>();
         for (int index = 0; index < x; index++) {
-            TeacherDetailsDataObject obj = new TeacherDetailsDataObject(""/*+FeeFor.get(index).toString()*/,
-                    ""/*"Date: " + Date.get(index).toString()*/, "Opening Balance : " + TotalAmount.get(index), "Total Deposit: " +
-                    TotalReceive.get(index), "Total Due: " + TotalDue.get(index), "Balance: " + Balance.get(index));
+            TeacherDetailsDataObject obj = new TeacherDetailsDataObject("Teacher Name: "+Date.get(index),
+                    "Subject: " + FeeFor.get(index), "Phone : " + TotalAmount.get(index), "","","");
             results.add(index, obj);
         }
         return results;
@@ -75,7 +74,9 @@ public class MyTeachersActivity extends AppCompatActivity {
         StringRequest stringRequest = new StringRequest(Request.Method.GET, test, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                String[] res = new String[]{"a", response};
+                String[] arr=response.split("<string xmlns=\"http://tempuri.org/\">");
+                String[] res2=arr[1].split("</");
+                String[] res = new String[]{"a", res2[0]};
                 res[1] = "{\"name\":" + res[1] + "}";
                 try {
                     JSONObject jsonObject = new JSONObject(res[1]);

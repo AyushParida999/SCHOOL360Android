@@ -4,7 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Base64;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
@@ -26,49 +35,35 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class MyProfileActivity extends AppCompatActivity {
-    private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
     private int x;
     String URL = "http://45.115.62.5:89/AndroidAPI.asmx/GetProfileDetails?studentCode=";
-    ArrayList<String> Date;
-    ArrayList<String> FeeFor;
-    ArrayList<String> TotalAmount;
-    ArrayList<String> TotalDue;
-    ArrayList<String> TotalReceive;
-    ArrayList<String> Balance;
+    public static String _name="";
+    public static String _phone="";
+    public static String _father="";
+    public static String _mother="";
+    public static String _address="";
+    public static String _cclass="";
+    public static String _image="";
 
     private static String LOG_TAG = "CardViewActivity";
 
-    @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_profile);
-        Date = new ArrayList<>();
-        FeeFor = new ArrayList<>();
-        TotalAmount = new ArrayList<>();
-        TotalReceive = new ArrayList<>();
-        TotalDue = new ArrayList<>();
-        Balance = new ArrayList<>();
-        mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
-        mRecyclerView.setHasFixedSize(true);
-        mLayoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(mLayoutManager);
         loadCardsData(URL);
     }
 
-    private ArrayList<ProfileDetailsDataObject> getDataSet() {
-        ArrayList results = new ArrayList<ProfileDetailsDataObject>();
-        for (int index = 0; index < x; index++) {
-            ProfileDetailsDataObject obj = new ProfileDetailsDataObject(""/*+FeeFor.get(index).toString()*/,
-                    ""/*"Date: " + Date.get(index).toString()*/, "Opening Balance : " + TotalAmount.get(index), "Total Deposit: " +
-                    TotalReceive.get(index), "Total Due: " + TotalDue.get(index), "Balance: " + Balance.get(index));
-            results.add(index, obj);
-        }
-        return results;
-    }
-
     private void loadCardsData(String url) {
+        final TextView mName = (TextView) findViewById(R.id.headName);
+        final TextView mName2 = (TextView) findViewById(R.id.inName);
+        final TextView mPhone = (TextView) findViewById(R.id.phone);
+        final TextView mPhone2 = (TextView) findViewById(R.id.inPhone);
+        final TextView mFather = (TextView) findViewById(R.id.father);
+        final TextView mMother = (TextView) findViewById(R.id.mother);
+        final TextView mCClass = (TextView) findViewById(R.id.currentClass);
+        final TextView mAddress = (TextView) findViewById(R.id.inAddress);
+        final ImageView mProfileImage=(ImageView) findViewById(R.id.profileImage);
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         Integer str = GlobalVariables.id;
         String test=url+str;
@@ -82,33 +77,38 @@ public class MyProfileActivity extends AppCompatActivity {
                     JSONArray jsonArray = jsonObject.getJSONArray("name");
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                        String date = jsonObject1.getString("name");
-                        String feeFor = jsonObject1.getString("registration_number");
-                        String totalAmount = jsonObject1.getString("class");
-                        String totalDue = jsonObject1.getString("father_name");
-                        String totalReceive = jsonObject1.getString("mother_name");
-                        String balance = jsonObject1.getString("phone");
-                        Date.add(date);
-                        FeeFor.add(feeFor);
-                        TotalAmount.add(totalAmount);
-                        TotalDue.add(totalDue);
-                        TotalReceive.add(totalReceive);
-                        Balance.add(balance);
-                        String date2 = jsonObject1.getString("address");
-                        String feeFor2 = jsonObject1.getString("need_transport");
-                        String totalAmount2 = jsonObject1.getString("nee_hostel");
-                        Date.add(date2);
-                        FeeFor.add(feeFor2);
-                        TotalAmount.add(totalAmount2);
-                        x = x + 1;
+                        String name = jsonObject1.getString("name");
+                        String phone = jsonObject1.getString("phone");
+                        String father = jsonObject1.getString("father_name");
+                        String mother = jsonObject1.getString("mother_name");
+                        String address = jsonObject1.getString("address");
+                        String cclass = jsonObject1.getString("current_class");
+                        String image = jsonObject1.getString("image");
+                        _name=name;
+                        _phone=phone;
+                        _father=father;
+                        _mother=mother;
+                        _address=address;
+                        _cclass=cclass;
+                        _image=image;
                     }
 
-                    mAdapter = new ProfileDetailsRecyclerViewAdapter(getDataSet());
-                    mRecyclerView.setAdapter(mAdapter);
                     //spinner.setAdapter(new ArrayAdapter<String>(FeeSummaryActivity.this, android.R.layout.simple_spinner_dropdown_item, SchoolNames));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+                mName.setText(_name);
+                mName2.setText(_name);
+                mPhone.setText(_phone);
+                mPhone2.setText(_phone);
+                mFather.setText(_father);
+                mMother.setText(_mother);
+                mAddress.setText(_address);
+                mCClass.setText(_cclass);
+
+                byte[] decodedString = Base64.decode(_image, Base64.DEFAULT);
+                Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+                mProfileImage.setImageBitmap(decodedByte);
             }
         }, new Response.ErrorListener() {
             @Override

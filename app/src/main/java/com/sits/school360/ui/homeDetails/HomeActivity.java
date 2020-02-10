@@ -169,7 +169,12 @@ public class HomeActivity extends AppCompatActivity {
                     //GlobalVariables.uimage=decodedByte;
                     imageView.setImageBitmap(decodedByte);
 
-
+                    ConstraintLayout constraintLayout=(ConstraintLayout)findViewById(R.id.homeLayout);
+                    View v=constraintLayout.getViewById(R.id.homeLayout);
+                    TextView nav_user2 = (TextView)hView.findViewById(R.id.user_name);
+                    nav_user.setText(Date.get(0));
+                    TextView nav_contact2=(TextView)hView.findViewById(R.id.user_id);
+                    nav_contact.setText(FeeFor.get(0));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
