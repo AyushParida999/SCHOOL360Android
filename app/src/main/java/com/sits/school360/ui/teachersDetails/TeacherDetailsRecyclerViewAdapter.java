@@ -14,7 +14,7 @@ import com.sits.school360.ui.examSchedule.ExamScheduleDataObject;
 import java.util.ArrayList;
 
 public class TeacherDetailsRecyclerViewAdapter extends RecyclerView.Adapter<TeacherDetailsRecyclerViewAdapter.DataObjectHolder> {
-    private static String LOG_TAG = "FeeSummaryRecyclerViewAdapter";
+    private static String LOG_TAG = "TeacherDetailsRecyclerViewAdapter";
     private ArrayList<TeacherDetailsDataObject> mDataset;
     private static MyClickListener myClickListener;
     public static class DataObjectHolder extends RecyclerView.ViewHolder

@@ -99,10 +99,12 @@ public class LoginActivity extends AppCompatActivity {
                             JSONObject jsonObject1 = jsonArray.getJSONObject(i);
                             String tempp = jsonObject1.getString("reg_no");
                             Integer temp= jsonObject1.getInt("student_code");
+                            String temppp=jsonObject1.getString("school_code");
                             if (tempp.equals(editTextUname.getText().toString())) {
 
                                 Intent intent = new Intent(view.getContext(), HomeActivity.class);
                                 GlobalVariables.id=temp;
+                                GlobalVariables.schoolID=temppp;
                                 view.getContext().startActivity(intent);
                             }
                             else{

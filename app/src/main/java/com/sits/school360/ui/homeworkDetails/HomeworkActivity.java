@@ -43,7 +43,7 @@ public class HomeworkActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_teachers);
+        setContentView(R.layout.activity_homework);
         Date = new ArrayList<>();
         FeeFor = new ArrayList<>();
         TotalAmount = new ArrayList<>();
@@ -76,7 +76,7 @@ public class HomeworkActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 String[] arr=response.split("<string xmlns=\"http://tempuri.org/\">");
-                String[] res2=arr[1].split("</");
+                String[] res2=arr[1].split("</string");
                 String[] res = new String[]{"a", res2[0]};
                 res[1] = "{\"name\":" + res[1] + "}";
                 try {

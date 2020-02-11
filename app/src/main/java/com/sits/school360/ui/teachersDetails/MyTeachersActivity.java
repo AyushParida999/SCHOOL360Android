@@ -83,9 +83,9 @@ public class MyTeachersActivity extends AppCompatActivity {
                     JSONArray jsonArray = jsonObject.getJSONArray("name");
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                        String date = jsonObject1.getString("teacher_name");
-                        String feeFor = jsonObject1.getString("subject");
-                        String totalAmount = jsonObject1.getString("contact");
+                        String date = jsonObject1.getString("Name");
+                        String feeFor = jsonObject1.getString("SubjectName");
+                        String totalAmount = jsonObject1.getString("PhoneNo");
                         //String totalDue = jsonObject1.getString("TotalDue");
                         //String totalReceive = jsonObject1.getString("TotalReceive");
                         //String balance = jsonObject1.getString("Balance");
