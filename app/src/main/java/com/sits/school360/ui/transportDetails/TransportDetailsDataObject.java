@@ -6,15 +6,15 @@ public class TransportDetailsDataObject {
     private String mTotalAmount;
     private String mTotalReceive;
     private String mTotalDue;
-    private String mBalance;
+//    private String mBalance;
 
-    TransportDetailsDataObject(String feeFor, String date, String totalAmount, String totalReceive, String totalDue, String balance) {
+    TransportDetailsDataObject(String feeFor, String date, String totalAmount, String totalReceive, String totalDue) {
         mFeeFor=feeFor;
         mDate=date;
         mTotalAmount=totalAmount;
         mTotalReceive=totalReceive;
         mTotalDue=totalDue;
-        mBalance=balance;
+//        mBalance=balance;
     }
     public String getmFeeFor(){
         return mFeeFor;
@@ -46,10 +46,10 @@ public class TransportDetailsDataObject {
     public void setmTotalDue(String mTotalDue){
         this.mTotalDue=mTotalDue;
     }
-    public String getmBalance(){
-        return mBalance;
-    }
-    public void setmBalance(String mBalance){
-        this.mBalance=mBalance;
-    }
+//    public String getmBalance(){
+//        return mBalance;
+//    }
+//    public void setmBalance(String mBalance){
+//        this.mBalance=mBalance;
+//    }
 }

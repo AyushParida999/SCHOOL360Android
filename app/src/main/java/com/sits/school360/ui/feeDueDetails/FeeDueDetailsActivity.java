@@ -36,7 +36,7 @@ public class FeeDueDetailsActivity extends AppCompatActivity {
     ArrayList<String> Date;
     ArrayList<String> FeeFor;
     ArrayList<String> TotalAmount;
-    ArrayList<Integer> TotalDue;
+    ArrayList<String> TotalDue;
     ArrayList<String> TotalReceive;
     //ArrayList<Integer> Balance;
 
@@ -62,9 +62,8 @@ public class FeeDueDetailsActivity extends AppCompatActivity {
     private ArrayList<FeeDueDetailsDataObject> getDataSet() {
         ArrayList results = new ArrayList<FeeDueDetailsDataObject>();
         for (int index = 0; index < x; index++) {
-            FeeDueDetailsDataObject obj = new FeeDueDetailsDataObject("Fee Due Number: "+FeeFor.get(index),"Issue Date: "+Date.get(index),
-                     "Opening Balance : " + TotalAmount.get(index), "Total Deposit: " +
-                    TotalReceive.get(index), "Total Due: " + TotalDue.get(index));
+            FeeDueDetailsDataObject obj = new FeeDueDetailsDataObject("Fee Due No: "+Date.get(index),"Issue Date: "+FeeFor.get(index),
+                    "Due Date: "+TotalAmount.get(index),"Amount: "+TotalDue.get(index),"Remarks: "+TotalReceive.get(index));
             results.add(index, obj);
         }
         return results;
@@ -87,7 +86,7 @@ public class FeeDueDetailsActivity extends AppCompatActivity {
                         String date = jsonObject1.getString("fee_due_number");
                         String feeFor = jsonObject1.getString("issue_date");
                         String totalAmount = jsonObject1.getString("due_date");
-                        Integer totalDue = jsonObject1.getInt("amount");
+                        String totalDue = jsonObject1.getString("amount");
                         String totalReceive = jsonObject1.getString("remarks");
                         //Integer balance = jsonObject1.getInt("Balance");
                         Date.add(date);

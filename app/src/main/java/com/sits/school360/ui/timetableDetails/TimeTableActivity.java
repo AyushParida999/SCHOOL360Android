@@ -30,7 +30,8 @@ public class TimeTableActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private int x;
-    String URL = "http://45.115.62.5:89/AndroidAPI.asmx/GetTimetableDetails?today=";
+    String URL = "http://apischools360.sitslive.com/Api/TimeTable?stuCode=";
+    String Key="&key="+GlobalVariables.schoolID+"&date=321";
     ArrayList<String> Date;
     ArrayList<String> FeeFor;
     ArrayList<String> TotalAmount;
@@ -61,7 +62,7 @@ public class TimeTableActivity extends AppCompatActivity {
         ArrayList results = new ArrayList<TimetableDetailsDataObject>();
         for (int index = 0; index < x; index++) {
             TimetableDetailsDataObject obj = new TimetableDetailsDataObject("Teacher Name:"+Date.get(index),"Subject Name: "+FeeFor.get(index),
-                    "Subject Code: "+TotalAmount.get(index),"","","");
+                    "Subject Code: "+TotalAmount.get(index));
             results.add(index, obj);
         }
         return results;
@@ -70,14 +71,12 @@ public class TimeTableActivity extends AppCompatActivity {
     private void loadCardsData(String url) {
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         Integer str = GlobalVariables.id;
-        String test=url+str;
+        String test=url+str+Key;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, test, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                String[] arr=response.split("<string xmlns=\"http://tempuri.org/\">");
-                String[] res2=arr[1].split("</");
-                String[] res = new String[]{"a", res2[0]};
-                res[1] = "{\"name\":" + res[1] + "}";
+                String[] res= new String[]{"a",response};
+                res[1]="{\"name\":"+res[1]+"}";
                 try {
                     JSONObject jsonObject = new JSONObject(res[1]);
                     JSONArray jsonArray = jsonObject.getJSONArray("name");

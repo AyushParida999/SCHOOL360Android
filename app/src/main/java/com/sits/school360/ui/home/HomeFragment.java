@@ -30,6 +30,7 @@ import com.sits.school360.ui.examSchedule.ExamScheduleActivity;
 import com.sits.school360.ui.feeDueDetails.FeeDueDetailsActivity;
 import com.sits.school360.ui.feePaidDetails.FeePaidDetailsActivity;
 import com.sits.school360.ui.feeSummary.FeeSummaryActivity;
+import com.sits.school360.ui.homeworkDetails.HomeworkActivity;
 import com.sits.school360.ui.profile.ProfileFragment;
 import com.sits.school360.ui.profileDetails.MyProfileActivity;
 import com.sits.school360.ui.teachersDetails.MyTeachersActivity;
@@ -102,7 +103,7 @@ public class HomeFragment extends Fragment {
         homework.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), TransportActivity.class);
+                Intent intent = new Intent(getActivity(), HomeworkActivity.class);
                 getActivity().startActivity(intent);
             }
         });

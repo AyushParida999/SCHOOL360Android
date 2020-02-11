@@ -24,16 +24,16 @@ public class HomeworkDetailsRecyclerViewAdapter extends RecyclerView.Adapter<Hom
         TextView feeFor;
         TextView totalAmount;
         TextView totalReceived;
-        TextView totalDue;
-        TextView balance;
+//        TextView totalDue;
+//        TextView balance;
         public DataObjectHolder(View itemView) {
             super(itemView);
             date = (TextView) itemView.findViewById(R.id.date);
             feeFor = (TextView) itemView.findViewById(R.id.feeFor);
             totalAmount = (TextView) itemView.findViewById(R.id.totalAmount);
             totalReceived = (TextView) itemView.findViewById(R.id.totalReceive);
-            totalDue = (TextView) itemView.findViewById(R.id.totalDue);
-            balance = (TextView) itemView.findViewById(R.id.balance);
+//            totalDue = (TextView) itemView.findViewById(R.id.totalDue);
+//            balance = (TextView) itemView.findViewById(R.id.balance);
             Log.i(LOG_TAG, "Adding Listener");
             itemView.setOnClickListener(this);
         }
@@ -52,7 +52,7 @@ public class HomeworkDetailsRecyclerViewAdapter extends RecyclerView.Adapter<Hom
     public DataObjectHolder onCreateViewHolder(ViewGroup parent,
                                                int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fee_summary_cards, parent, false);
+                .inflate(R.layout.homework_cards, parent, false);
         DataObjectHolder dataObjectHolder = new DataObjectHolder(view);
         return dataObjectHolder;
     }
@@ -62,8 +62,8 @@ public class HomeworkDetailsRecyclerViewAdapter extends RecyclerView.Adapter<Hom
         holder.feeFor.setText(mDataset.get(position).getmFeeFor());
         holder.totalAmount.setText(mDataset.get(position).getmTotalAmount());
         holder.totalReceived.setText(mDataset.get(position).getmTotalReceive());
-        holder.totalDue.setText(mDataset.get(position).getmTotalDue());
-        holder.balance.setText(mDataset.get(position).getmBalance());
+//        holder.totalDue.setText(mDataset.get(position).getmTotalDue());
+//        holder.balance.setText(mDataset.get(position).getmBalance());
     }
     public void addItem(HomeworkDetailsDataObject dataObj, int index) {
         mDataset.add(index, dataObj);

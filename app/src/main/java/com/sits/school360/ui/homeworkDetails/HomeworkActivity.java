@@ -30,7 +30,8 @@ public class HomeworkActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private int x;
-    String URL = "http://45.115.62.5:89/AndroidAPI.asmx?op=GetHomeworkDetails?studentCode=";
+    String URL = "http://apischools360.sitslive.com/Api/HomeWork?stuCode=";
+    String Key="&key="+GlobalVariables.schoolID;
     ArrayList<String> Date;
     ArrayList<String> FeeFor;
     ArrayList<String> TotalAmount;
@@ -60,9 +61,8 @@ public class HomeworkActivity extends AppCompatActivity {
     private ArrayList<HomeworkDetailsDataObject> getDataSet() {
         ArrayList results = new ArrayList<HomeworkDetailsDataObject>();
         for (int index = 0; index < x; index++) {
-            HomeworkDetailsDataObject obj = new HomeworkDetailsDataObject(""/*+FeeFor.get(index).toString()*/,
-                    ""/*"Date: " + Date.get(index).toString()*/, "Assignment Title : " + TotalAmount.get(index), "Assignment Description: " +
-                    TotalReceive.get(index), "Subject Name: " + TotalDue.get(index), "Download Link: " + Balance.get(index));
+            HomeworkDetailsDataObject obj = new HomeworkDetailsDataObject("Assignment Title: "+Date.get(index),"Assignment Description: "+FeeFor.get(index),
+                    "Subject Name: "+TotalAmount.get(index),"");
             results.add(index, obj);
         }
         return results;
@@ -71,14 +71,12 @@ public class HomeworkActivity extends AppCompatActivity {
     private void loadCardsData(String url) {
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         Integer str = GlobalVariables.id;
-        String test=url+str;
+        String test=url+str+Key;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, test, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                String[] arr=response.split("<string xmlns=\"http://tempuri.org/\">");
-                String[] res2=arr[1].split("</string");
-                String[] res = new String[]{"a", res2[0]};
-                res[1] = "{\"name\":" + res[1] + "}";
+                String[] res= new String[]{"a",response};
+                res[1]="{\"name\":"+res[1]+"}";
                 try {
                     JSONObject jsonObject = new JSONObject(res[1]);
                     JSONArray jsonArray = jsonObject.getJSONArray("name");
@@ -86,7 +84,7 @@ public class HomeworkActivity extends AppCompatActivity {
                         JSONObject jsonObject1 = jsonArray.getJSONObject(i);
                         String date = jsonObject1.getString("assignment_title");
                         String feeFor = jsonObject1.getString("assignment_description");
-                        String totalAmount = jsonObject1.getString("subject");
+                        String totalAmount = jsonObject1.getString("subject_name");
                         String totalDue = jsonObject1.getString("file_link");
                         //String totalReceive = jsonObject1.getString("TotalReceive");
                         //String balance = jsonObject1.getString("Balance");

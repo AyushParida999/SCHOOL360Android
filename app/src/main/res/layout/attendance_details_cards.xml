@@ -33,18 +33,18 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/date"
                 android:layout_marginTop="10dp"/>
-            <TextView
-                android:id="@+id/totalReceive"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/totalAmount"
-                android:layout_marginTop="10dp"/>
-            <TextView
-                android:id="@+id/totalDue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/totalReceive"
-                android:layout_marginTop="10dp"/>
+<!--            <TextView-->
+<!--                android:id="@+id/totalReceive"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@+id/totalAmount"-->
+<!--                android:layout_marginTop="10dp"/>-->
+<!--            <TextView-->
+<!--                android:id="@+id/totalDue"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@+id/totalReceive"-->
+<!--                android:layout_marginTop="10dp"/>-->
 <!--            <TextView-->
 <!--                android:id="@+id/balance"-->
 <!--                android:layout_width="wrap_content"-->

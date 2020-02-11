@@ -8,13 +8,13 @@ public class FeePaidDetailsDataObject {
     private String mTotalDue;
     private String mBalance;
 
-    FeePaidDetailsDataObject(String feeFor, String date, String totalAmount, String totalReceive, String totalDue, String balance) {
+    FeePaidDetailsDataObject(String feeFor, String date, String totalAmount/*, String totalReceive, String totalDue, String balance*/) {
         mFeeFor=feeFor;
         mDate=date;
         mTotalAmount=totalAmount;
-        mTotalReceive=totalReceive;
-        mTotalDue=totalDue;
-        mBalance=balance;
+//        mTotalReceive=totalReceive;
+//        mTotalDue=totalDue;
+//        mBalance=balance;
     }
     public String getmFeeFor(){
         return mFeeFor;
@@ -34,22 +34,22 @@ public class FeePaidDetailsDataObject {
     public void setmTotalAmount(String mTotalAmount){
         this.mTotalAmount=mTotalAmount;
     }
-    public String getmTotalReceive(){
-        return mTotalReceive;
-    }
-    public void setmTotalReceive(String mTotalReceive){
-        this.mTotalReceive=mTotalReceive;
-    }
-    public String getmTotalDue(){
-        return mTotalDue;
-    }
-    public void setmTotalDue(String mTotalDue){
-        this.mTotalDue=mTotalDue;
-    }
-    public String getmBalance(){
-        return mBalance;
-    }
-    public void setmBalance(String mBalance){
-        this.mBalance=mBalance;
-    }
+//    public String getmTotalReceive(){
+//        return mTotalReceive;
+//    }
+//    public void setmTotalReceive(String mTotalReceive){
+//        this.mTotalReceive=mTotalReceive;
+//    }
+//    public String getmTotalDue(){
+//        return mTotalDue;
+//    }
+//    public void setmTotalDue(String mTotalDue){
+//        this.mTotalDue=mTotalDue;
+//    }
+//    public String getmBalance(){
+//        return mBalance;
+//    }
+//    public void setmBalance(String mBalance){
+//        this.mBalance=mBalance;
+//    }
 }

@@ -75,10 +75,8 @@ public class FeeSummaryActivity extends AppCompatActivity {
         StringRequest stringRequest=new StringRequest(Request.Method.GET, test, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                String[] arr=response.split("<string xmlns=\"http://tempuri.org/\">");
-                String[] res2=arr[1].split("</string");
-                String[] res = new String[]{"a", res2[0]};
-                res[1] = "{\"name\":" + res[1] + "}";
+                String[] res= new String[]{"a",response};
+                res[1]="{\"name\":"+res[1]+"}";
                 try{
                     JSONObject jsonObject=new JSONObject(res[1]);
                     JSONArray jsonArray=jsonObject.getJSONArray("name");

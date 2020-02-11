@@ -30,13 +30,14 @@ public class FeePaidDetailsActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private int x;
-    String URL = "http://45.115.62.5:89/AndroidAPI.asmx/GetFeeReceiveDetails?studentCode=";
+    String URL = "http://apischools360.sitslive.com/Api/FeePaidDetails?stuCode=";
+    String Key="&key="+GlobalVariables.schoolID;
     ArrayList<String> Date;
     ArrayList<String> FeeFor;
-    ArrayList<Integer> TotalAmount;
-    ArrayList<Integer> TotalDue;
-    ArrayList<Integer> TotalReceive;
-    ArrayList<Integer> Balance;
+    ArrayList<String> TotalAmount;
+//    ArrayList<Integer> TotalDue;
+//    ArrayList<Integer> TotalReceive;
+//    ArrayList<Integer> Balance;
 
     private static String LOG_TAG = "CardViewActivity";
 
@@ -47,9 +48,9 @@ public class FeePaidDetailsActivity extends AppCompatActivity {
         Date = new ArrayList<>();
         FeeFor = new ArrayList<>();
         TotalAmount = new ArrayList<>();
-        TotalReceive = new ArrayList<>();
-        TotalDue = new ArrayList<>();
-        Balance = new ArrayList<>();
+//        TotalReceive = new ArrayList<>();
+//        TotalDue = new ArrayList<>();
+//        Balance = new ArrayList<>();
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
@@ -61,7 +62,7 @@ public class FeePaidDetailsActivity extends AppCompatActivity {
         ArrayList results = new ArrayList<FeePaidDetailsDataObject>();
         for (int index = 0; index < x; index++) {
             FeePaidDetailsDataObject obj = new FeePaidDetailsDataObject("Fee Receive Number: "+Date.get(index),"Created On: "+FeeFor.get(index),
-                    "Amount: "+TotalAmount.get(index),"","","");
+                    "Amount: "+TotalAmount.get(index));
             results.add(index, obj);
         }
         return results;
@@ -70,22 +71,20 @@ public class FeePaidDetailsActivity extends AppCompatActivity {
     private void loadCardsData(String url) {
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         Integer str = GlobalVariables.id;
-        String test=url+str;
+        String test=url+str+Key;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, test, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                String[] arr=response.split("<string xmlns=\"http://tempuri.org/\">");
-                String[] res2=arr[1].split("</");
-                String[] res = new String[]{"a", res2[0]};
-                res[1] = "{\"name\":" + res[1] + "}";
+                String[] res= new String[]{"a",response};
+                res[1]="{\"name\":"+res[1]+"}";
                 try {
                     JSONObject jsonObject = new JSONObject(res[1]);
                     JSONArray jsonArray = jsonObject.getJSONArray("name");
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                        String date = jsonObject1.getString("fee_receipt_number");
+                        String date = jsonObject1.getString("fee_receive_number");
                         String feeFor = jsonObject1.getString("date");
-                        Integer totalAmount = jsonObject1.getInt("amount");
+                        String totalAmount = jsonObject1.getString("FeeAmount");
                         //Integer totalDue = jsonObject1.getInt("TotalDue");
                         //Integer totalReceive = jsonObject1.getInt("TotalReceive");
                         //Integer balance = jsonObject1.getInt("Balance");

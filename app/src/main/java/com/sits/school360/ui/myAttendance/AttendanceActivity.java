@@ -38,7 +38,8 @@ public class AttendanceActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private int x;
-    String URL = "http://45.115.62.5:89/AndroidAPI.asmx/GetAttendanceDetails?studentCode=";
+    String URL = "http://apischools360.sitslive.com/Api/Attendance?stuCode=";
+    String Key = "&key="+GlobalVariables.schoolID;
     ArrayList<String> Date;
     ArrayList<String> FeeFor;
     ArrayList<String> TotalAmount;
@@ -66,35 +67,34 @@ public class AttendanceActivity extends AppCompatActivity {
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
         months=(Spinner)findViewById(R.id.month);
-        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>( AttendanceActivity.this,R.layout.support_simple_spinner_dropdown_item,Spin);
-
-        spinnerArrayAdapter.setDropDownViewResource(R.layout.activity_attendance);
-        months.setAdapter(spinnerArrayAdapter);
-
-        months.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view,
-                                       int position, long id) {
-                // TODO Auto-generated method stub
-
-                months.getSelectedItemPosition();
-                Hold = months.getSelectedItemPosition();
-                loadCardsData(URL,Hold+1);
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                // TODO Auto-generated method stub
-
-            }
-        });
+//        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>( AttendanceActivity.this,R.layout.support_simple_spinner_dropdown_item,Spin);
+//
+//        spinnerArrayAdapter.setDropDownViewResource(R.layout.activity_attendance);
+//        months.setAdapter(spinnerArrayAdapter);
+        loadCardsData(URL,2);
+//        months.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view,
+//                                       int position, long id) {
+//                // TODO Auto-generated method stub
+//
+//                months.getSelectedItemPosition();
+//                Hold = months.getSelectedItemPosition();
+//                loadCardsData(URL,Hold+1);
+//            }
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//                // TODO Auto-generated method stub
+//
+//            }
+//        });
     }
 
     private ArrayList<AttendanceDetailsDataObject> getDataSet() {
         ArrayList results = new ArrayList<AttendanceDetailsDataObject>();
         for (int index = 0; index < x; index++) {
-            AttendanceDetailsDataObject obj = new AttendanceDetailsDataObject("Date: "+Date.get(index),"Status: "+FeeFor.get(index),"Code: "+TotalAmount.get(index),
-                    "","","");
+            AttendanceDetailsDataObject obj = new AttendanceDetailsDataObject("Date: "+Date.get(index),"Status: "+FeeFor.get(index),"");
             results.add(index, obj);
         }
         return results;
@@ -103,14 +103,12 @@ public class AttendanceActivity extends AppCompatActivity {
     private void loadCardsData(String url,int h) {
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         Integer str = GlobalVariables.id;
-        String test=url+str+"&month="+h;
+        String test=url+str+Key+"&month="+h;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, test, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                String[] arr=response.split("<string xmlns=\"http://tempuri.org/\">");
-                String[] res2=arr[1].split("</");
-                String[] res = new String[]{"a", res2[0]};
-                res[1] = "{\"name\":" + res[1] + "}";
+                String[] res= new String[]{"a",response};
+                res[1]="{\"name\":"+res[1]+"}";
                 try {
                     JSONObject jsonObject = new JSONObject(res[1]);
                     JSONArray jsonArray = jsonObject.getJSONArray("name");
