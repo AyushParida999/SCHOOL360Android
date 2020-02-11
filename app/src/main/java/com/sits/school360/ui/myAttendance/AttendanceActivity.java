@@ -6,7 +6,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.CalendarView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -26,6 +30,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.net.URL;
 import java.util.ArrayList;
 
 public class AttendanceActivity extends AppCompatActivity {
@@ -40,7 +45,9 @@ public class AttendanceActivity extends AppCompatActivity {
     ArrayList<String> TotalDue;
     ArrayList<String> TotalReceive;
     ArrayList<String> Balance;
-
+    ArrayList<String> Spin;
+    Spinner months;
+    int Hold;
     private static String LOG_TAG = "CardViewActivity";
 
     @Override
@@ -53,11 +60,34 @@ public class AttendanceActivity extends AppCompatActivity {
         TotalReceive = new ArrayList<>();
         TotalDue = new ArrayList<>();
         Balance = new ArrayList<>();
+        Spin=new ArrayList<>();
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        loadCardsData(URL);
+        months=(Spinner)findViewById(R.id.month);
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>( AttendanceActivity.this,R.layout.support_simple_spinner_dropdown_item,Spin);
+
+        spinnerArrayAdapter.setDropDownViewResource(R.layout.activity_attendance);
+        months.setAdapter(spinnerArrayAdapter);
+
+        months.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int position, long id) {
+                // TODO Auto-generated method stub
+
+                months.getSelectedItemPosition();
+                Hold = months.getSelectedItemPosition();
+                loadCardsData(URL,Hold+1);
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // TODO Auto-generated method stub
+
+            }
+        });
     }
 
     private ArrayList<AttendanceDetailsDataObject> getDataSet() {
@@ -70,10 +100,10 @@ public class AttendanceActivity extends AppCompatActivity {
         return results;
     }
 
-    private void loadCardsData(String url) {
+    private void loadCardsData(String url,int h) {
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         Integer str = GlobalVariables.id;
-        String test=url+str;
+        String test=url+str+"&month="+h;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, test, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
