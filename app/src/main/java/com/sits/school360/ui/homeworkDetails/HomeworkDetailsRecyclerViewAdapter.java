@@ -1,11 +1,14 @@
 package com.sits.school360.ui.homeworkDetails;
 
+import android.os.Build;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.core.text.HtmlCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.sits.school360.R;
@@ -59,7 +62,9 @@ public class HomeworkDetailsRecyclerViewAdapter extends RecyclerView.Adapter<Hom
     @Override
     public void onBindViewHolder(DataObjectHolder holder, int position) {
         holder.date.setText(mDataset.get(position).getmDate());
-        holder.feeFor.setText(mDataset.get(position).getmFeeFor());
+
+        holder.feeFor.setText(HtmlCompat.fromHtml(mDataset.get(position).getmFeeFor(),0));
+        //holder.feeFor.setText(mDataset.get(position).getmFeeFor());
         holder.totalAmount.setText(mDataset.get(position).getmTotalAmount());
         holder.totalReceived.setText(mDataset.get(position).getmTotalReceive());
 //        holder.totalDue.setText(mDataset.get(position).getmTotalDue());
