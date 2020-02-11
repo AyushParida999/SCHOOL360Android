@@ -17,10 +17,10 @@
 
     <ImageView
         android:id="@+id/user_photo"
-        android:layout_width="71dp"
-        android:layout_height="71dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -30,10 +30,10 @@
         android:id="@+id/user_name"
         android:textColor="#ffffff"
         android:fontFamily="@font/mo_re"
-        android:layout_marginTop="32dp"
-        android:layout_marginStart="18dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:layout_marginStart="0dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintStart_toEndOf="@id/user_photo"
         app:layout_constraintTop_toTopOf="parent"/>
 
@@ -43,17 +43,17 @@
         android:id="@+id/user_id"
         android:fontFamily="@font/mo_re"
         android:textColor="#ffffff"
-        android:layout_marginTop="32dp"
-        android:layout_marginStart="18dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:layout_marginStart="0dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintStart_toEndOf="@id/user_photo"
         app:layout_constraintTop_toTopOf="@id/user_name"/>
 
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="60dp"
         android:layout_marginBottom="60dp"
         android:alignmentMode="alignMargins"
         android:columnCount="2"
