@@ -14,6 +14,7 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.sits.school360.GlobalVariables;
 import com.sits.school360.R;
 import com.sits.school360.ui.timetableDetails.TimetableDetailsDataObject;
 import com.sits.school360.ui.timetableDetails.TimetableDetailsRecyclerViewAdapter;
@@ -29,7 +30,7 @@ public class TimeTableActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private int x;
-    String URL = "http://apischools360.sitslive.com/Api/Fee?stuCode=931&key=@@schools@@@@@@@@@3@@@@&schoolCodeKey=3";
+    String URL = "http://45.115.62.5:89/AndroidAPI.asmx/GetTimetableDetails?today=";
     ArrayList<String> Date;
     ArrayList<String> FeeFor;
     ArrayList<String> TotalAmount;
@@ -59,9 +60,8 @@ public class TimeTableActivity extends AppCompatActivity {
     private ArrayList<TimetableDetailsDataObject> getDataSet() {
         ArrayList results = new ArrayList<TimetableDetailsDataObject>();
         for (int index = 0; index < x; index++) {
-            TimetableDetailsDataObject obj = new TimetableDetailsDataObject(""/*+FeeFor.get(index).toString()*/,
-                    ""/*"Date: " + Date.get(index).toString()*/, "Opening Balance : " + TotalAmount.get(index), "Total Deposit: " +
-                    TotalReceive.get(index), "Total Due: " + TotalDue.get(index), "Balance: " + Balance.get(index));
+            TimetableDetailsDataObject obj = new TimetableDetailsDataObject("Teacher Name:"+Date.get(index),"Subject Name: "+FeeFor.get(index),
+                    "Subject Code: "+TotalAmount.get(index),"","","");
             results.add(index, obj);
         }
         return results;
@@ -69,19 +69,23 @@ public class TimeTableActivity extends AppCompatActivity {
 
     private void loadCardsData(String url) {
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+        Integer str = GlobalVariables.id;
+        String test=url+str;
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, test, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                String[] res = new String[]{"a", response};
+                String[] arr=response.split("<string xmlns=\"http://tempuri.org/\">");
+                String[] res2=arr[1].split("</");
+                String[] res = new String[]{"a", res2[0]};
                 res[1] = "{\"name\":" + res[1] + "}";
                 try {
                     JSONObject jsonObject = new JSONObject(res[1]);
                     JSONArray jsonArray = jsonObject.getJSONArray("name");
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                        String date = jsonObject1.getString("lecture");
-                        String feeFor = jsonObject1.getString("subject");
-                        String totalAmount = jsonObject1.getString("teacher");
+                        String date = jsonObject1.getString("teacher");
+                        String feeFor = jsonObject1.getString("SubjectName");
+                        String totalAmount = jsonObject1.getString("LectureCode");
                         //String totalDue = jsonObject1.getString("TotalDue");
                         //String totalReceive = jsonObject1.getString("TotalReceive");
                         //String balance = jsonObject1.getString("Balance");
