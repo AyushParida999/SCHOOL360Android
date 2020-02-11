@@ -33,7 +33,7 @@ public class AttendanceActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private int x;
-    String URL = "http://45.115.62.5:89/AndroidAPI.asmx?op=GetHomeworkDetails?studentCode=";
+    String URL = "http://45.115.62.5:89/AndroidAPI.asmx/GetAttendanceDetails?studentCode=";
     ArrayList<String> Date;
     ArrayList<String> FeeFor;
     ArrayList<String> TotalAmount;
@@ -63,9 +63,8 @@ public class AttendanceActivity extends AppCompatActivity {
     private ArrayList<AttendanceDetailsDataObject> getDataSet() {
         ArrayList results = new ArrayList<AttendanceDetailsDataObject>();
         for (int index = 0; index < x; index++) {
-            AttendanceDetailsDataObject obj = new AttendanceDetailsDataObject(""/*+FeeFor.get(index).toString()*/,
-                    ""/*"Date: " + Date.get(index).toString()*/, "Assignment Title : " + TotalAmount.get(index), "Assignment Description: " +
-                    TotalReceive.get(index), "Subject Name: " + TotalDue.get(index), "Download Link: " + Balance.get(index));
+            AttendanceDetailsDataObject obj = new AttendanceDetailsDataObject("Date: "+Date.get(index),"Status: "+FeeFor.get(index),"Code: "+TotalAmount.get(index),
+                    "","","");
             results.add(index, obj);
         }
         return results;
@@ -87,16 +86,16 @@ public class AttendanceActivity extends AppCompatActivity {
                     JSONArray jsonArray = jsonObject.getJSONArray("name");
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                        String date = jsonObject1.getString("assignment_title");
-                        String feeFor = jsonObject1.getString("assignment_description");
-                        String totalAmount = jsonObject1.getString("subject");
-                        String totalDue = jsonObject1.getString("file_link");
+                        String date = jsonObject1.getString("date");
+                        String feeFor = jsonObject1.getString("status");
+                        String totalAmount = jsonObject1.getString("code");
+                        //String totalDue = jsonObject1.getString("file_link");
                         //String totalReceive = jsonObject1.getString("TotalReceive");
                         //String balance = jsonObject1.getString("Balance");
                         Date.add(date);
                         FeeFor.add(feeFor);
                         TotalAmount.add(totalAmount);
-                        TotalDue.add(totalDue);
+                        //TotalDue.add(totalDue);
                         //TotalReceive.add(totalReceive);
                         //Balance.add(balance);
                         x = x + 1;
