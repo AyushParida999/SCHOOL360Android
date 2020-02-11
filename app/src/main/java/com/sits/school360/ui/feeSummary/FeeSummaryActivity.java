@@ -32,9 +32,10 @@ public class FeeSummaryActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private int x;
-    String URL="http://45.115.62.5:89/AndroidAPI.asmx/GetFeeSummaryDetails?studentCode=";
-    ArrayList<String> Date;
-    ArrayList<String> FeeFor;
+    String URL="http://apischools360.sitslive.com/Api/FeeSummary?stuCode=";
+    String Key = "&key="+GlobalVariables.schoolID;
+//    ArrayList<String> Date;
+//    ArrayList<String> FeeFor;
     ArrayList<Integer> TotalAmount;
     ArrayList<Integer> TotalDue;
     ArrayList<Integer> TotalReceive;
@@ -45,8 +46,8 @@ public class FeeSummaryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fee_summary);
-        Date=new ArrayList<>();
-        FeeFor=new ArrayList<>();
+//        Date=new ArrayList<>();
+//        FeeFor=new ArrayList<>();
         TotalAmount=new ArrayList<>();
         TotalReceive=new ArrayList<>();
         TotalDue=new ArrayList<>();
@@ -61,8 +62,7 @@ public class FeeSummaryActivity extends AppCompatActivity {
     private ArrayList<FeeSummaryDataObject> getDataSet() {
         ArrayList results = new ArrayList<FeeSummaryDataObject>();
         for (int index = 0; index < x; index++) {
-            FeeSummaryDataObject obj = new FeeSummaryDataObject(""/*+FeeFor.get(index).toString()*/,
-                    ""/*"Date: " + Date.get(index).toString()*/,"Opening Balance : "+TotalAmount.get(index),"TCurrent Dues: "+
+            FeeSummaryDataObject obj = new FeeSummaryDataObject("Opening Balance : "+TotalAmount.get(index),"TCurrent Dues: "+
                     TotalReceive.get(index),"Current Received: "+TotalDue.get(index),"Remaining Balance: "+Balance.get(index));
             results.add(index, obj);
         }
@@ -71,7 +71,7 @@ public class FeeSummaryActivity extends AppCompatActivity {
     private void loadCardsData(String url) {
         RequestQueue requestQueue= Volley.newRequestQueue(getApplicationContext());
         Integer str = GlobalVariables.id;
-        String test=url+str;
+        String test=url+str+Key;
         StringRequest stringRequest=new StringRequest(Request.Method.GET, test, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

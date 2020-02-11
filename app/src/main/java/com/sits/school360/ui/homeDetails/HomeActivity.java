@@ -47,7 +47,8 @@ import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity {
 
-    String URL="http://45.115.62.5:89/AndroidAPI.asmx/GetProfileDetails?studentCode=";
+    String URL="http://apischools360.sitslive.com/Api/getDetails?stuCode=";
+    String Key="&key=";
     private AppBarConfiguration mAppBarConfiguration;
     private int x;
     ArrayList<String> Date;
@@ -108,15 +109,13 @@ public class HomeActivity extends AppCompatActivity {
 
     private void loadCardsData(String url) {
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        Integer str = GlobalVariables.id;
+        String str = GlobalVariables.id+"&key="+GlobalVariables.schoolID;
         String test=url+str;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, test, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                String[] arr=response.split("<string xmlns=\"http://tempuri.org/\">");
-                String[] res2=arr[1].split("</");
-                String[] res = new String[]{"a", res2[0]};
-                res[1] = "{\"name\":" + res[1] + "}";
+                String[] res= new String[]{"a",response};
+                res[1]="{\"name\":"+res[1]+"}";
                 try {
                     JSONObject jsonObject = new JSONObject(res[1]);
                     JSONArray jsonArray = jsonObject.getJSONArray("name");

@@ -61,7 +61,7 @@ public class ExamRecyclerViewAdapter extends RecyclerView.Adapter<ExamRecyclerVi
         holder.date.setText(mDataset.get(position).getmDate());
         holder.feeFor.setText(mDataset.get(position).getmFeeFor());
         holder.totalAmount.setText(mDataset.get(position).getmTotalAmount());
-        holder.totalReceived.setText(mDataset.get(position).getmTotalReceive());
+        //holder.totalReceived.setText(mDataset.get(position).getmTotalReceive());
         holder.totalDue.setText(mDataset.get(position).getmTotalDue());
         holder.balance.setText(mDataset.get(position).getmBalance());
     }

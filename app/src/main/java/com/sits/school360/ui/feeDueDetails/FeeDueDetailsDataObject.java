@@ -8,13 +8,13 @@ public class FeeDueDetailsDataObject {
     private String mTotalDue;
     private String mBalance;
 
-    FeeDueDetailsDataObject(String feeFor, String date, String totalAmount, String totalReceive, String totalDue, String balance) {
+    FeeDueDetailsDataObject(String feeFor, String date, String totalAmount, String totalReceive, String totalDue/*, String balance*/) {
         mFeeFor=feeFor;
         mDate=date;
         mTotalAmount=totalAmount;
         mTotalReceive=totalReceive;
         mTotalDue=totalDue;
-        mBalance=balance;
+//        mBalance=balance;
     }
     public String getmFeeFor(){
         return mFeeFor;
@@ -46,10 +46,10 @@ public class FeeDueDetailsDataObject {
     public void setmTotalDue(String mTotalDue){
         this.mTotalDue=mTotalDue;
     }
-    public String getmBalance(){
-        return mBalance;
-    }
-    public void setmBalance(String mBalance){
-        this.mBalance=mBalance;
-    }
+//    public String getmBalance(){
+//        return mBalance;
+//    }
+//    public void setmBalance(String mBalance){
+//        this.mBalance=mBalance;
+//    }
 }

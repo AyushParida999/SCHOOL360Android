@@ -30,11 +30,12 @@ public class ExamScheduleActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private int x;
-    String URL = "http://45.115.62.5:89/AndroidAPI.asmx/GetExamScheduleDetails?classCode=";
+    String URL = "http://apischools360.sitslive.com/Api/examSchedule?stuCode=";
+    String Key = "&key=";
     ArrayList<String> Date;
     ArrayList<String> FeeFor;
     ArrayList<String> TotalAmount;
-    ArrayList<String> TotalDue;
+    //ArrayList<String> TotalDue;
     ArrayList<Integer> TotalReceive;
     ArrayList<Integer> Balance;
 
@@ -48,7 +49,7 @@ public class ExamScheduleActivity extends AppCompatActivity {
         FeeFor = new ArrayList<>();
         TotalAmount = new ArrayList<>();
         TotalReceive = new ArrayList<>();
-        TotalDue = new ArrayList<>();
+        //TotalDue = new ArrayList<>();
         Balance = new ArrayList<>();
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
         mRecyclerView.setHasFixedSize(true);
@@ -61,7 +62,7 @@ public class ExamScheduleActivity extends AppCompatActivity {
         ArrayList results = new ArrayList<ExamScheduleDataObject>();
         for (int index = 0; index < x; index++) {
             ExamScheduleDataObject obj = new ExamScheduleDataObject("Date: "+Date.get(index),
-                    "Subject: "+FeeFor.get(index),"Exam Type: "+TotalAmount.get(index),"",
+                    "Subject: "+FeeFor.get(index),"Exam Type: "+TotalAmount.get(index),
                     "Maximum Marks: "+TotalReceive.get(index),"Minimum Marks: "+Balance.get(index));
             results.add(index, obj);
         }
@@ -70,15 +71,13 @@ public class ExamScheduleActivity extends AppCompatActivity {
 
     private void loadCardsData(String url) {
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        Integer str = GlobalVariables.id;
+        String str = GlobalVariables.id+"&key="+GlobalVariables.schoolID;
         String test=url+str;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, test, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                String[] arr=response.split("<string xmlns=\"http://tempuri.org/\">");
-                String[] res2=arr[1].split("</");
-                String[] res = new String[]{"a", res2[0]};
-                res[1] = "{\"name\":" + res[1] + "}";
+                String[] res= new String[]{"a",response};
+                res[1]="{\"name\":"+res[1]+"}";
                 try {
                     JSONObject jsonObject = new JSONObject(res[1]);
                     JSONArray jsonArray = jsonObject.getJSONArray("name");

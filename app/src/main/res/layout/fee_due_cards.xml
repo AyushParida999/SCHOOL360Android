@@ -15,18 +15,18 @@
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
-<!--            <TextView-->
-<!--                android:id="@+id/feeFor"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_alignParentTop="true"-->
-<!--                android:textStyle="bold"/>-->
-<!--            <TextView-->
-<!--                android:id="@+id/date"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_below="@+id/feeFor"-->
-<!--                android:layout_marginTop="10dp"/>-->
+            <TextView
+                android:id="@+id/feeFor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/feeFor"
+                android:layout_marginTop="10dp"/>
             <TextView
                 android:id="@+id/totalAmount"
                 android:layout_width="wrap_content"
@@ -45,12 +45,12 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/totalReceive"
                 android:layout_marginTop="10dp"/>
-            <TextView
-                android:id="@+id/balance"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/totalDue"
-                android:layout_marginTop="10dp"/>
+<!--            <TextView-->
+<!--                android:id="@+id/balance"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@+id/totalDue"-->
+<!--                android:layout_marginTop="10dp"/>-->
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 </LinearLayout>

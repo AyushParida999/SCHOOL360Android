@@ -8,11 +8,11 @@ public class ExamScheduleDataObject {
     private String mTotalDue;
     private String mBalance;
 
-    ExamScheduleDataObject(String feeFor, String date, String totalAmount, String totalReceive, String totalDue, String balance) {
+    ExamScheduleDataObject(String feeFor, String date, String totalAmount,/* String totalReceive,*/ String totalDue, String balance) {
         mFeeFor=feeFor;
         mDate=date;
         mTotalAmount=totalAmount;
-        mTotalReceive=totalReceive;
+        //mTotalReceive=totalReceive;
         mTotalDue=totalDue;
         mBalance=balance;
     }
@@ -34,12 +34,12 @@ public class ExamScheduleDataObject {
     public void setmTotalAmount(String mTotalAmount){
         this.mTotalAmount=mTotalAmount;
     }
-    public String getmTotalReceive(){
-        return mTotalReceive;
-    }
-    public void setmTotalReceive(String mTotalReceive){
-        this.mTotalReceive=mTotalReceive;
-    }
+//    public String getmTotalReceive(){
+//        return mTotalReceive;
+//    }
+//    public void setmTotalReceive(String mTotalReceive){
+//        this.mTotalReceive=mTotalReceive;
+//    }
     public String getmTotalDue(){
         return mTotalDue;
     }

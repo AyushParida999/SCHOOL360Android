@@ -19,16 +19,16 @@ public class FeeSummaryRecyclerViewAdapter extends RecyclerView.Adapter<FeeSumma
     public static class DataObjectHolder extends RecyclerView.ViewHolder
             implements View
             .OnClickListener {
-        TextView date;
-        TextView feeFor;
+//        TextView date;
+//        TextView feeFor;
         TextView totalAmount;
         TextView totalReceived;
         TextView totalDue;
         TextView balance;
         public DataObjectHolder(View itemView) {
             super(itemView);
-            date = (TextView) itemView.findViewById(R.id.date);
-            feeFor = (TextView) itemView.findViewById(R.id.feeFor);
+//            date = (TextView) itemView.findViewById(R.id.date);
+//            feeFor = (TextView) itemView.findViewById(R.id.feeFor);
             totalAmount = (TextView) itemView.findViewById(R.id.totalAmount);
             totalReceived = (TextView) itemView.findViewById(R.id.totalReceive);
             totalDue = (TextView) itemView.findViewById(R.id.totalDue);
@@ -57,8 +57,8 @@ public class FeeSummaryRecyclerViewAdapter extends RecyclerView.Adapter<FeeSumma
     }
     @Override
     public void onBindViewHolder(DataObjectHolder holder, int position) {
-        holder.date.setText(mDataset.get(position).getmDate());
-        holder.feeFor.setText(mDataset.get(position).getmFeeFor());
+//        holder.date.setText(mDataset.get(position).getmDate());
+//        holder.feeFor.setText(mDataset.get(position).getmFeeFor());
         holder.totalAmount.setText(mDataset.get(position).getmTotalAmount());
         holder.totalReceived.setText(mDataset.get(position).getmTotalReceive());
         holder.totalDue.setText(mDataset.get(position).getmTotalDue());

@@ -8,26 +8,26 @@ public class FeeSummaryDataObject {
     private String mTotalDue;
     private String mBalance;
 
-    FeeSummaryDataObject(String feeFor, String date, String totalAmount, String totalReceive, String totalDue, String balance) {
-        mFeeFor=feeFor;
-        mDate=date;
+    FeeSummaryDataObject(/*String feeFor, String date,*/ String totalAmount, String totalReceive, String totalDue, String balance) {
+//        mFeeFor=feeFor;
+//        mDate=date;
         mTotalAmount=totalAmount;
         mTotalReceive=totalReceive;
         mTotalDue=totalDue;
         mBalance=balance;
     }
-    public String getmFeeFor(){
-        return mFeeFor;
-    }
-    public void setmFeeFor(String mFeeFor){
-        this.mFeeFor=mFeeFor;
-    }
-    public String getmDate(){
-        return mDate;
-    }
-    public void setmDate(String mDate){
-        this.mDate=mDate;
-    }
+//    public String getmFeeFor(){
+//        return mFeeFor;
+//    }
+//    public void setmFeeFor(String mFeeFor){
+//        this.mFeeFor=mFeeFor;
+//    }
+//    public String getmDate(){
+//        return mDate;
+//    }
+//    public void setmDate(String mDate){
+//        this.mDate=mDate;
+//    }
     public String getmTotalAmount(){
         return mTotalAmount;
     }

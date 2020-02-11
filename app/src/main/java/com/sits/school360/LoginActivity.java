@@ -38,13 +38,13 @@ public class LoginActivity extends AppCompatActivity {
     TextInputEditText editTextUname;
     TextInputEditText editTextPws;
     Button login;
-    String URL="http://apischools360.sitslive.com/Api/GetSchools?key=@@schools@@@@@@@@@3@@@@";
-    String URLLogin="http://apischools360.sitslive.com/Api/Login?id=1&uname=";
+    String URL="http://apischools360.sitslive.com/api/getSchools";
+    String URLLogin="http://apischools360.sitslive.com/Api/Login?uname=";
     String SchoolCodeKey="&schoolCodeKey=";
     String Password="&pws=";
-    String Key="&key=@@schools@@@@@@@@@3@@@@";
+    String Key="&key=";
     ArrayList<String> SchoolNames;
-    ArrayList<Integer> ID;
+    ArrayList<String> ID;
     ArrayList<String>temp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +62,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(),"Please Wait...",Toast.LENGTH_LONG).show();
-                String newURL=URLLogin+editTextUname.getText().toString()+SchoolCodeKey+ ID.get(spinner.getSelectedItemPosition())+Password+editTextPws.getText().toString()+Key;
+                GlobalVariables.schoolID=ID.get(spinner.getSelectedItemPosition());
+                String newURL=URLLogin+editTextUname.getText().toString()+Key+ GlobalVariables.schoolID+Password+editTextPws.getText().toString();
                 loginEvent(newURL,v);
             }
         });
@@ -97,14 +98,12 @@ public class LoginActivity extends AppCompatActivity {
                     else{
                         for(int i=0;i<jsonArray.length();i++) {
                             JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                            String tempp = jsonObject1.getString("reg_no");
-                            Integer temp= jsonObject1.getInt("student_code");
-                            String temppp=jsonObject1.getString("school_code");
+                            String tempp = jsonObject1.getString("RegistrationNo");
+                            Integer temp= jsonObject1.getInt("StudentCode");
                             if (tempp.equals(editTextUname.getText().toString())) {
 
                                 Intent intent = new Intent(view.getContext(), HomeActivity.class);
                                 GlobalVariables.id=temp;
-                                GlobalVariables.schoolID=temppp;
                                 view.getContext().startActivity(intent);
                             }
                             else{
@@ -140,8 +139,8 @@ public class LoginActivity extends AppCompatActivity {
                         JSONArray jsonArray=jsonObject.getJSONArray("name");
                         for(int i=0;i<jsonArray.length();i++){
                             JSONObject jsonObject1=jsonArray.getJSONObject(i);
-                            String school=jsonObject1.getString("school_name");
-                            Integer id=jsonObject1.getInt("school_code");
+                            String school=jsonObject1.getString("SchoolName");
+                            String id=jsonObject1.getString("SchoolCode");
                             SchoolNames.add(school);
                             ID.add(id);
                         }
