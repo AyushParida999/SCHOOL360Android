@@ -16,10 +16,10 @@
             android:id="@+id/nav_fee"
             android:icon="@drawable/cash_usd"
             android:title="@string/menu_fee" />
-        <item
-            android:id="@+id/nav_transport"
-            android:icon="@drawable/bus_school"
-            android:title="@string/menu_transport" />
+<!--        <item-->
+<!--            android:id="@+id/nav_transport"-->
+<!--            android:icon="@drawable/bus_school"-->
+<!--            android:title="@string/menu_transport" />-->
         <item
             android:id="@+id/nav_profile"
             android:icon="@drawable/account_circle"
