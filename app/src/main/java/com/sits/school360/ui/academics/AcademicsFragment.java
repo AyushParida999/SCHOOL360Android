@@ -6,12 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
 
-import com.sits.school360.AttendanceActivity;
+import com.sits.school360.ui.myAttendance.AttendanceActivity;
 import com.sits.school360.EventsActivity;
 import com.sits.school360.MyNoticesActivity;
 import com.sits.school360.R;

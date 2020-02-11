@@ -54,7 +54,7 @@
             android:parentActivityName=".ui.homeDetails.HomeActivity"/>
         <activity android:name=".FeePaymentActivity"
             android:parentActivityName=".ui.homeDetails.HomeActivity"/>
-        <activity android:name=".AttendanceActivity"
+        <activity android:name=".ui.myAttendance.AttendanceActivity"
             android:parentActivityName=".ui.homeDetails.HomeActivity"/>
         <activity android:name=".LoginActivity"
             android:theme="@style/AppTheme.NoActionBar"/>

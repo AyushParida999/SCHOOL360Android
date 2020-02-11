@@ -1,36 +1,17 @@
 package com.sits.school360.ui.home;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import androidx.annotation.Nullable;
-import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 
-import com.sits.school360.AttendanceActivity;
-import com.sits.school360.FeePaymentActivity;
-import com.sits.school360.GlobalVariables;
-import com.sits.school360.MainActivity;
 import com.sits.school360.R;
-import com.sits.school360.ui.academics.AcademicsFragment;
-import com.sits.school360.ui.exam.ExamFragment;
 import com.sits.school360.ui.examSchedule.ExamScheduleActivity;
-import com.sits.school360.ui.feeDueDetails.FeeDueDetailsActivity;
-import com.sits.school360.ui.feePaidDetails.FeePaidDetailsActivity;
 import com.sits.school360.ui.feeSummary.FeeSummaryActivity;
-import com.sits.school360.ui.profile.ProfileFragment;
 import com.sits.school360.ui.profileDetails.MyProfileActivity;
 import com.sits.school360.ui.teachersDetails.MyTeachersActivity;
 import com.sits.school360.ui.transportDetails.TransportActivity;

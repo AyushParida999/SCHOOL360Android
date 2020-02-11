@@ -4,7 +4,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.media.Image;
 import android.os.Bundle;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -15,11 +14,8 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import android.util.Base64;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -31,36 +27,17 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
-import com.sits.school360.AttendanceActivity;
-import com.sits.school360.EventsActivity;
 import com.sits.school360.GlobalVariables;
 import com.sits.school360.LoginActivity;
-import com.sits.school360.MyNoticesActivity;
 import com.sits.school360.R;
-import com.sits.school360.ui.examSchedule.ExamScheduleActivity;
-import com.sits.school360.ui.feeDueDetails.FeeDueDetailsActivity;
-import com.sits.school360.ui.feePaidDetails.FeePaidDetailsRecyclerViewAdapter;
-import com.sits.school360.ui.feeSummary.FeeSummaryActivity;
-import com.sits.school360.ui.homeworkDetails.HomeworkActivity;
-import com.sits.school360.ui.profileDetails.MyProfileActivity;
-import com.sits.school360.ui.teachersDetails.MyTeachersActivity;
-import com.sits.school360.ui.timetableDetails.TimeTableActivity;
-import com.sits.school360.ui.transportDetails.TransportActivity;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
