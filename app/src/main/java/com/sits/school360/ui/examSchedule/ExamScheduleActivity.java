@@ -83,12 +83,12 @@ public class ExamScheduleActivity extends AppCompatActivity {
                     JSONArray jsonArray = jsonObject.getJSONArray("name");
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                        String date = jsonObject1.getString("date");
-                        String feeFor = jsonObject1.getString("subject_name");
-                        String totalAmount = jsonObject1.getString("exam_type");
+                        String date = jsonObject1.getString("ESDateTime");
+                        String feeFor = jsonObject1.getString("SubjectName");
+                        String totalAmount = jsonObject1.getString("ExaminationTypeName");
                         //String totalDue = jsonObject1.getString("time");
-                        Integer totalReceive = jsonObject1.getInt("maximum_marks");
-                        Integer balance = jsonObject1.getInt("minimum_marks");
+                        Integer totalReceive = jsonObject1.getInt("MaximumMarks");
+                        Integer balance = jsonObject1.getInt("MinimumMarks");
                         Date.add(date);
                         FeeFor.add(feeFor);
                         TotalAmount.add(totalAmount);

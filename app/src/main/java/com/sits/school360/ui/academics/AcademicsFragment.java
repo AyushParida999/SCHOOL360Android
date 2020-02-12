@@ -14,7 +14,6 @@ import com.sits.school360.EventsActivity;
 import com.sits.school360.MyNoticesActivity;
 import com.sits.school360.R;
 import com.sits.school360.ui.homeworkDetails.HomeworkActivity;
-import com.sits.school360.ui.subjectDetails.SubjectDetailsActivity;
 import com.sits.school360.ui.teachersDetails.MyTeachersActivity;
 import com.sits.school360.ui.timetableDetails.TimeTableActivity;
 
@@ -70,7 +69,7 @@ public class AcademicsFragment extends Fragment {
         events.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), SubjectDetailsActivity.class);
+                Intent intent = new Intent(getActivity(), EventsActivity.class);
                 getActivity().startActivity(intent);
             }
         });
