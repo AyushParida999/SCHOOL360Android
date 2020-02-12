@@ -64,6 +64,7 @@
         <activity
             android:name=".LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+<<<<<<< HEAD
         <activity android:name=".ui.homeDetails.HomeActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".ui.examSchedule.ExamScheduleActivity"
@@ -81,6 +82,9 @@
         <activity
             android:name=".ui.homeDetails.HomeActivity"/>
 >>>>>>> parent of 60c073a... minor changes
+=======
+        <activity android:name=".ui.homeDetails.HomeActivity" />
+>>>>>>> parent of 4fb7ddc... new app test
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_home">
