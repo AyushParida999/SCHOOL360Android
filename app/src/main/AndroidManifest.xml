@@ -46,7 +46,6 @@
         <activity android:name=".ui.transportDetails.TransportActivity"
             android:parentActivityName=".ui.homeDetails.HomeActivity"/>
         <activity android:name=".ui.examReport.ExamReportActivity" />
-<<<<<<< HEAD
         <activity
             android:name=".ui.examSchedule.ExamScheduleActivity"
             android:parentActivityName=".ui.homeDetails.HomeActivity" />
@@ -67,7 +66,6 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.homeDetails.HomeActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
-=======
         <activity android:name=".ui.examSchedule.ExamScheduleActivity"
             android:parentActivityName=".ui.homeDetails.HomeActivity"/>
         <activity android:name=".ui.feeDueDetails.FeeDueDetailsActivity"
