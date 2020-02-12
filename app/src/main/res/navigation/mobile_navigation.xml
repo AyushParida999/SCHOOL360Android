@@ -22,11 +22,11 @@
         android:label="@string/menu_exam"
         tools:layout="@layout/fragment_exam" />
 
-<!--    <fragment-->
-<!--        android:id="@+id/nav_transport"-->
-<!--        android:name="com.sits.school360.ui.transport.TransportFragment"-->
-<!--        android:label="@string/menu_transport"-->
-<!--        tools:layout="@layout/fragment_transport" />-->
+    <fragment
+        android:id="@+id/nav_transport"
+        android:name="com.sits.school360.ui.transport.TransportFragment"
+        android:label="@string/menu_transport"
+        tools:layout="@layout/fragment_transport" />
 
     <fragment
         android:id="@+id/nav_profile"
